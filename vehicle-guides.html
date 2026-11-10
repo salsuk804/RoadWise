@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Guides by Vehicle | RoadWise</title>
+    <meta name="description" content="Safety guides for motorbikes, cars, rickshaws, vans and buses on Pakistani roads.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b3d2f'/%3E%3Cpath d='M30 82 L44 18 H56 L70 82 H60 L50 38 L40 82Z' fill='%23f2bd3f'/%3E%3C/svg%3E">
+    <style>
+
+:root {
+    --asphalt: #0b3d2f;
+    --asphalt-2: #124c3b;
+    --ink: #0c261d;
+    --concrete: #f5f1e8;
+    --paper: #fbf9f4;
+    --line: #d8d1c3;
+    --muted: #5d6c66;
+
+    --yellow: #f2bd3f;     
+    --red: #b43b3b;        
+    --blue: #175f59;       
+    --green: #0b3b2e;      
+    --orange: #c56a32;
+
+    --home-green: var(--asphalt);
+    --home-green-2: var(--asphalt-2);
+    --home-yellow: var(--yellow);
+
+    --font-head: "Manrope", system-ui, sans-serif;
+    --font-body: "Manrope", system-ui, sans-serif;
+
+    --page: 1180px;
+    --gutter: max(1.25rem, calc((100% - var(--page)) / 2));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body {
+    background: var(--concrete);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+img, svg, video { max-width: 100%; display: block; }
+ul { padding: 0; list-style: none; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 4px; }
+small { font-size: 0.85rem; color: var(--muted); }
+em { font-style: italic; }
+
+h1, h2, h3 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+h2 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
+h3 { font-size: 1.7rem; margin: 2.25rem 0 0.75rem; }
+
+h2::after {
+    content: "";
+    display: block;
+    width: min(240px, 55%);
+    height: 8px;
+    margin-top: 0.7rem;
+    background: repeating-linear-gradient(90deg, var(--dash, var(--yellow)) 0 30px, transparent 30px 46px);
+}
+
+header.home-header {
+    min-height: 70px;
+    background: var(--home-green);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem var(--gutter);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 3px solid var(--home-yellow); 
+}
+
+header.home-header > a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+header.home-header > a strong { font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; letter-spacing: -.04em; }
+header.home-header > a span { font-size: 0.68rem; color: var(--yellow); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+
+header.home-header nav {
+    background: rgba(18, 76, 59, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 0.35rem 0.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+header.home-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+header.home-header nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header.home-header nav a[aria-current="page"] {
+    background: #ffffff;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 800;
+}
+
+header.home-header nav a:not([aria-current="page"]):hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+main > section { padding: 4.5rem var(--gutter); }
+main > section > p { max-width: 68ch; }
+main > section > p + p { margin-top: 0.9rem; }
+main > section > h2 + p { color: var(--muted); }
+
+#hero, #page-intro {
+    background: var(--asphalt);
+    color: #fff;
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 5.5rem;
+}
+
+#hero::after, #page-intro::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 1.6rem;
+    height: 8px;
+    background: repeating-linear-gradient(90deg, var(--yellow) 0 60px, transparent 60px 100px);
+}
+#hero > p:first-child, #page-intro > p:first-child {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+#hero h1, #page-intro h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    max-width: 16ch;
+    margin-bottom: 1.25rem;
+}
+#page-intro h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); max-width: 18ch; }
+#hero p, #page-intro p { color: #d9e1dc; }
+#page-intro a { color: var(--yellow); }
+#page-intro a:hover { color: #fff; }
+#page-intro > p:last-child { margin-top: 1.25rem; }
+
+#hero {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    column-gap: 3rem;
+    align-items: center;
+}
+#hero > *:not(figure) { grid-column: 1; }
+#hero figure { grid-column: 2; grid-row: 1 / span 4; }
+#hero > p:nth-of-type(2) { font-size: 1.2rem; max-width: 50ch; }
+
+#hero p:has(> a) { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.75rem; }
+#hero p > a {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.85rem 1.4rem;
+    border-radius: 6px;
+    border: 2px solid var(--yellow);
+    background: var(--yellow);
+    color: var(--ink);
+}
+#hero p > a + a { background: transparent; color: #fff; }
+#hero p > a:hover { background: #fff; border-color: #fff; color: var(--ink); }
+
+#hero figure {
+    background: var(--asphalt-2);
+    border: 2px dashed rgba(255, 194, 14, 0.5);
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: var(--yellow);
+}
+#hero figure svg { width: 100%; height: auto; }
+#hero figcaption { color: #d9e1dc; font-size: 0.9rem; margin-top: 1rem; }
+
+#page-intro nav ul { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+#page-intro nav a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 2px solid var(--yellow);
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
+}
+#page-intro nav a:hover { background: var(--yellow); color: var(--ink); }
+
+#pick-vehicle ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+#pick-vehicle li { grid-column: span 2; }
+#pick-vehicle li:nth-child(n+4) { grid-column: span 3; }
+#pick-vehicle a {
+    display: block;
+    height: 100%;
+    padding: 1.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+#pick-vehicle a:hover { transform: translateY(-5px); color: #fff; }
+#pick-vehicle a strong { font-family: var(--font-head); font-size: 2rem; font-weight: 800; line-height: 1; display: block; margin-bottom: 0.4rem; }
+#pick-vehicle li:nth-child(1) a { background: var(--red); }
+#pick-vehicle li:nth-child(2) a { background: var(--blue); }
+#pick-vehicle li:nth-child(3) a { background: var(--yellow); color: var(--ink); }
+#pick-vehicle li:nth-child(4) a { background: var(--green); }
+#pick-vehicle li:nth-child(5) a { background: var(--asphalt); }
+#pick-vehicle li:nth-child(3) a:hover { color: var(--ink); }
+
+main ol { counter-reset: step; margin: 1.75rem 0; max-width: 760px; }
+main ol > li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.75rem 4.25rem;
+    border-left: 4px dashed var(--line);
+    margin-left: 1.4rem;
+}
+main ol > li:last-child { border-left-color: transparent; padding-bottom: 0; }
+main ol > li::before {
+    content: counter(step);
+    position: absolute;
+    left: -1.65rem; top: -0.15rem;
+    width: 3rem; height: 3rem;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 3px solid var(--ink);
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+main ol > li strong { display: block; font-size: 1.15rem; }
+
+#five-checks { background: var(--paper); }
+
+main dl { margin: 1.75rem 0; display: grid; gap: 1.25rem; max-width: 820px; }
+main dt {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    padding-left: 1rem;
+    border-left: 8px solid var(--red);
+}
+main dd { padding-left: calc(1rem + 8px); margin-top: 0.35rem; color: var(--muted); }
+#results dt { border-left-color: var(--green); }
+
+table { width: 100%; border-collapse: collapse; background: var(--paper); margin: 1.75rem 0 0.5rem; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+caption { text-align: left; font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; padding: 0 0 0.6rem; background: transparent; }
+th, td { padding: 0.85rem 1rem; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); }
+thead th { background: var(--asphalt); color: #fff; font-size: 0.9rem; }
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: #f4f0e7; }
+tbody tr:last-child > * { border-bottom: 0; }
+td svg { margin: 0 auto; }
+
+meter { width: min(220px, 40vw); height: 14px; vertical-align: middle; margin-right: 0.5rem; }
+meter::-webkit-meter-bar { background: #e5dfd2; border: 0; border-radius: 7px; }
+meter::-webkit-meter-optimum-value { background: var(--green); border-radius: 7px; }
+meter::-webkit-meter-suboptimum-value { background: var(--yellow); border-radius: 7px; }
+meter::-webkit-meter-even-less-good-value { background: var(--red); border-radius: 7px; }
+meter::-moz-meter-bar { background: var(--green); }
+meter:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--yellow); }
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--red); }
+
+#fines td > strong { color: var(--red); }
+#hotlines td a { font-family: var(--font-head); font-size: 2rem; font-weight: 800; text-decoration: none; color: var(--red); line-height: 1; }
+#hotlines td a:hover { color: var(--ink); }
+#hotlines td strong { font-weight: 800; }
+
+main figure { margin: 1.75rem 0; max-width: 760px; border-radius: 14px; overflow: hidden; background: var(--paper); box-shadow: 0 0 0 1px var(--line); }
+main figure svg { width: 100%; height: auto; }
+main figcaption { padding: 0.9rem 1.1rem; font-size: 0.95rem; color: var(--muted); }
+#hero figure { max-width: none; box-shadow: none; overflow: visible; }
+
+#gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+#gallery > h2, #gallery > h3, #gallery > p { grid-column: 1 / -1; }
+#gallery > h3 { margin-bottom: 0; }
+#gallery figure { display: flex; align-items: center; gap: 1.25rem; padding: 1.1rem; margin: 0; max-width: none; border-left: 8px solid var(--asphalt); }
+#gallery figure svg { width: 90px; height: 90px; flex: none; }
+#gallery figcaption { padding: 0; color: var(--ink); }
+#gallery figcaption strong { font-family: var(--font-head); font-size: 1.35rem; display: block; line-height: 1.1; margin-bottom: 0.2rem; }
+
+#markings { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem 1.5rem; background: var(--paper); }
+#markings > h2, #markings > p { grid-column: 1 / -1; }
+#markings figure { margin: 0; max-width: none; background: var(--asphalt); }
+#markings figcaption { background: var(--paper); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; color: var(--ink); }
+#markings figure svg { height: 80px; }
+
+details {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin: 0.75rem 0;
+    max-width: 820px;
+}
+details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem 3.2rem 1rem 1.25rem;
+    font-weight: 700;
+    position: relative;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after {
+    content: "+";
+    position: absolute; right: 1.1rem; top: 50%;
+    transform: translateY(-50%);
+    width: 1.8rem; height: 1.8rem;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 1.3rem; line-height: 1;
+}
+details[open] > summary::after { content: "\2212"; background: var(--ink); color: #fff; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > summary:hover { background: #f4f0e7; border-radius: 10px; }
+details > :not(summary) { padding-left: 1.25rem; padding-right: 1.25rem; }
+details > p { margin: 1rem 0; }
+details > figure { margin-left: 1.25rem; margin-right: 1.25rem; width: calc(100% - 2.5rem); }
+details > p:first-of-type { margin-top: 1rem; }
+details > p:last-child { margin-bottom: 1.1rem; }
+
+
+#pre-ride-check { background: var(--paper); }
+fieldset { border: 0; padding: 0; min-width: 0; }
+#pre-ride-check legend { font-weight: 700; margin-bottom: 0.75rem; color: var(--muted); }
+#pre-ride-check fieldset p { margin: 0 0 0.6rem; max-width: 560px; }
+#pre-ride-check label {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--concrete);
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+#pre-ride-check label:hover { border-color: var(--blue); }
+#pre-ride-check label:has(input:checked) { border-color: var(--green); background: #e6f4ee; text-decoration: line-through; text-decoration-color: var(--green); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--green); width: 1.3rem; height: 1.3rem; flex: none; }
+
+#quiz-banner { background: var(--yellow); color: var(--ink); text-align: left; }
+#quiz-banner h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 14ch; }
+#quiz-banner h2::after { --dash: var(--ink); }
+#quiz-banner p { color: var(--ink) !important; font-size: 1.2rem; font-weight: 700; }
+#quiz-banner p:last-child { margin-top: 1.5rem; }
+#quiz-banner a {
+    display: inline-block;
+    background: var(--ink); color: #fff;
+    padding: 0.9rem 1.6rem;
+    border-radius: 6px;
+    text-decoration: none; font-weight: 700;
+}
+#quiz-banner a:hover { background: #000; color: var(--yellow); }
+
+#quiz form { display: grid; gap: 1.5rem; margin-top: 2rem; max-width: 820px; }
+#quiz fieldset { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; }
+#quiz legend {
+    float: left; width: 100%;
+    font-family: var(--font-head);
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+#quiz legend + p { clear: both; }
+#quiz fieldset p { margin: 0 0 0.6rem; }
+#quiz fieldset label {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.85rem 1.1rem;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fafbfc;
+}
+#quiz fieldset label:hover { border-color: var(--blue); }
+#quiz fieldset label:has(input:checked) { border-color: var(--blue); background: #e8f0fa; font-weight: 700; }
+#quiz details { background: transparent; border: 0; margin-top: 1rem; }
+#quiz details > summary {
+    display: inline-block; padding: 0.55rem 3rem 0.55rem 1.1rem;
+    background: var(--asphalt); color: #fff; border-radius: 6px;
+}
+#quiz details > summary:hover { background: var(--asphalt-2); }
+#quiz details[open] > summary { border-bottom: 0; border-radius: 6px; }
+#quiz details > summary::after { right: 0.7rem; width: 1.5rem; height: 1.5rem; font-size: 1.1rem; }
+#quiz details > p {
+    margin: 0.75rem 0 0; padding: 1rem 1.1rem;
+    border-left: 6px solid var(--green);
+    background: #e6f4ee; border-radius: 0 10px 10px 0;
+}
+#results { background: var(--paper); }
+#results dl { max-width: 720px; }
+
+label { font-weight: 700; }
+input[type="text"], input[type="tel"], select, textarea {
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+input[type="text"]:focus, input[type="tel"]:focus, select:focus, textarea:focus { border-color: var(--blue); outline: 3px solid rgba(20, 86, 160, 0.2); }
+button[type="submit"] {
+    font: inherit; font-weight: 700;
+    background: var(--yellow); color: var(--ink);
+    border: 2px solid var(--ink);
+    padding: 0.85rem 1.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button[type="submit"]:hover { background: var(--ink); color: var(--yellow); }
+
+#scenarios { background: var(--paper); }
+#scenarios details[open] { border-color: var(--red); }
+#crash { background: var(--concrete); }
+#hotlines { background: var(--paper); }
+
+body > footer { background: #082f24; color: #d9e1dc; padding: 3rem var(--gutter) 2rem; }
+body > footer > p:first-child { color: #fff; font-size: 1.1rem; }
+body > footer strong { font-family: var(--font-head); font-size: 1.6rem; color: var(--yellow); }
+body > footer nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 1.25rem 0; }
+body > footer a { color: #fff; }
+body > footer a:hover { color: var(--yellow); }
+body > footer small { color: #9aa79f; display: block; border-top: 1px solid var(--asphalt-2); padding-top: 1.25rem; }
+
+@media (max-width: 860px) {
+    header.home-header { flex-direction: column; align-items: flex-start; }
+    header.home-header nav ul { gap: 0.25rem 1.1rem; }
+    main > section { padding: 3rem var(--gutter); }
+
+    #hero { display: block; padding-bottom: 5rem; }
+    #hero figure { margin-top: 2.5rem; }
+
+    #pick-vehicle ul { grid-template-columns: 1fr; }
+    #pick-vehicle li, #pick-vehicle li:nth-child(n+4) { grid-column: auto; }
+
+    #gallery, #markings { grid-template-columns: 1fr; }
+
+    table { display: block; overflow-x: auto; }
+    main ol > li { padding-left: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    #pick-vehicle a { transition: none; }
+    #pick-vehicle a:hover { transform: none; }
+}
+
+
+        @media (max-width: 860px) {
+            header.home-header { position: static; }
+            header.home-header nav { border-radius: 22px; max-width: 100%; }
+            header.home-header nav ul { flex-wrap: wrap; gap: .25rem; }
+            header.home-header nav a { padding: .5rem .85rem; font-size: .84rem; }
+        }
+
+.site-notice { height: 34px; display: grid; place-items: center; color: #1b2d27; background: var(--home-yellow); font-size: .65rem; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; text-align: center; padding: 0 .5rem; }
+@media (max-width: 680px) { .site-notice { height: 30px; font-size: .54rem; letter-spacing: .12em; } }
+
+/* typography matched to the homepage */
+body { font-size: 1rem; line-height: 1.7; letter-spacing: -0.005em; }
+h1, h2, h3 { font-weight: 800; line-height: 1; letter-spacing: -0.045em; }
+h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.05; }
+h3 { font-size: 1.7rem; letter-spacing: -0.025em; }
+#page-intro h1 { letter-spacing: -0.06em; line-height: .95; }
+#page-intro > p:first-child { display: inline-block; margin-bottom: 1.25rem; padding: .5rem .8rem; border: 1px solid rgba(242,189,63,.45); border-radius: 999px; color: var(--yellow); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; line-height: 1.2; }
+
+
+
+/* ---------- vehicle guides v3: interactive ---------- */
+.v-intro-note { max-width: 56ch; }
+#picker { background: var(--paper); padding-bottom: 2.5rem; }
+.pick-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin-top: 1.75rem; }
+.pick { position: relative; display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem 1.2rem 1.2rem; background: #fff; color: var(--ink); text-decoration: none; border: 2px solid var(--line); border-radius: 16px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease; }
+.pick:hover { transform: translateY(-4px); border-color: var(--ink); box-shadow: 5px 5px 0 var(--accent); }
+.pick:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.pick-ic { display: block; width: 74px; margin-bottom: .6rem; color: var(--ink); }
+.pick-ic svg { width: 100%; height: auto; display: block; }
+.pick strong { font-family: var(--font-head); font-size: 1.35rem; letter-spacing: -0.03em; line-height: 1.1; }
+.pick-tag { color: var(--muted); font-size: .9rem; line-height: 1.4; }
+.pick-go { margin-top: auto; padding-top: .9rem; font-size: .78rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+.pick-go b { display: inline-block; transition: transform .2s; }
+.pick:hover .pick-go b { transform: translateX(4px); }
+.pick[aria-current="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pick[aria-current="true"] .pick-ic, .pick[aria-current="true"] .pick-go { color: #fff; }
+.pick[aria-current="true"] .pick-ic svg circle { fill: var(--ink); }
+.pick[aria-current="true"] .pick-tag { color: #d9e1dc; }
+.js #picker.compact { padding-bottom: 1rem; }
+.js #picker.compact .pick-grid { margin-top: 1rem; }
+.js #picker.compact .pick { flex-direction: row; align-items: center; gap: .7rem; padding: .7rem 1rem; }
+.js #picker.compact .pick-ic { width: 40px; margin: 0; }
+.js #picker.compact .pick strong { font-size: 1rem; }
+.js #picker.compact .pick-tag, .js #picker.compact .pick-go { display: none; }
+.js #picker.compact h2 { font-size: 1.1rem; letter-spacing: 0; margin: 0; }
+.js #picker.compact h2::after { display: none; }
+
+.js .guide { display: none; }
+.js .guide.active { display: block; animation: guideIn .4s ease both; }
+@keyframes guideIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+section.guide { padding: 3rem var(--gutter) 4.5rem; border-top: 10px solid var(--accent); background: var(--paper); }
+.g-head { max-width: 860px; }
+.g-head h2 { margin: .9rem 0 1.1rem; }
+.g-head h2::after { display: none; }
+.g-switch { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: 0; font-size: .85rem; max-width: none; }
+.g-switch span { font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .64rem; color: var(--muted); margin-right: .3rem; }
+.g-switch a { padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); text-decoration: none; font-weight: 700; }
+.g-switch a:hover { border-color: var(--ink); }
+.g-switch a[aria-current="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+section.guide > .g-head > p.v-danger { max-width: 62ch; padding: .3rem 0 .3rem 1.1rem; border-left: 6px solid var(--accent); font-size: 1.1rem; color: var(--ink); }
+
+.remember { margin-top: 2rem; padding: 1.8rem 2rem 2rem; background: var(--asphalt); color: #fff; border-radius: 18px; position: relative; overflow: hidden; }
+.remember::before { content: ""; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px; border-radius: 50%; background: var(--accent); opacity: .22; }
+.remember h3 { margin: 0 0 1.2rem; font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); line-height: 1.2; }
+.remember ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; counter-reset: rem; max-width: none; }
+.remember li { counter-increment: rem; position: relative; padding: 3.2rem 0 0; font-family: var(--font-head); font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; border: 0; margin: 0; }
+.remember li::before { content: counter(rem); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--yellow); color: var(--ink); font-size: 1.1rem; }
+
+.g-visuals { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 1.5rem; align-items: stretch; }
+.g-visuals.has-fig { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.v-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem 1.6rem; }
+.v-card h3 { font-size: 1.45rem; letter-spacing: -0.03em; margin: 0 0 1rem; line-height: 1.1; }
+.v-card h4 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 .7rem; }
+.v-card p { margin: 0; line-height: 1.55; max-width: none; font-size: .98rem; }
+.v-card.note { background: #fff8e3; border-color: #ecd68a; }
+.eyebrow-d { margin: 0 0 .5rem !important; font-size: .64rem !important; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+.sd-ctrl { display: grid; gap: 1rem; }
+.sd-speed { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.sd-speed output { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+.sd input[type="range"] { width: 100%; height: 2.2rem; accent-color: var(--accent, var(--ink)); cursor: pointer; }
+.seg { justify-self: start; display: inline-flex; border: 2px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.seg button { font: inherit; font-weight: 800; font-size: .85rem; padding: .4rem 1.1rem; background: transparent; color: var(--ink); border: 0; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.sd-result { margin-top: 1.1rem; }
+.sd-big { font-family: var(--font-head); font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+.sd-big small { font-size: 1.1rem; letter-spacing: 0; font-weight: 700; color: var(--muted); margin-left: .3rem; }
+.sd-bar { display: flex; height: 26px; margin: .9rem 0 .5rem; border-radius: 6px; overflow: hidden; background: var(--concrete); }
+.sd-bar i { display: block; height: 100%; transition: width .25s ease; }
+.sd-bar .r { background: var(--yellow); } .sd-bar .b { background: var(--red); }
+.sd-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-size: .85rem; color: var(--muted); }
+.sd-legend b { display: inline-block; width: .7rem; height: .7rem; border-radius: 2px; margin-right: .35rem; vertical-align: -.05em; }
+.sd-fun { margin-top: .9rem !important; font-weight: 700; color: var(--ink); }
+.sd-note { margin-top: .6rem !important; font-size: .8rem !important; color: var(--muted); }
+
+figure.tog { margin: 0; max-width: none; display: flex; flex-direction: column; background: #fff; }
+figure.tog svg { flex: 1; min-height: 0; }
+figure.tog .ov { opacity: 0; transition: opacity .45s ease; }
+figure.tog.on .ov { opacity: 1; }
+figure.tog figcaption { display: grid; gap: .6rem; }
+.tog-btn { justify-self: start; font: inherit; font-weight: 800; font-size: .9rem; padding: .6rem 1.2rem; background: var(--ink); color: #fff; border: 0; border-radius: 999px; cursor: pointer; }
+.tog-btn:hover { background: var(--asphalt-2); }
+
+.wyd { margin-top: 1.5rem; padding: 1.8rem 2rem 2rem; background: var(--yellow); border: 3px solid var(--ink); border-radius: 18px; box-shadow: 6px 6px 0 var(--ink); }
+.wyd h3 { margin: 0 0 .3rem; font-size: 1.8rem; }
+.wyd-sub { margin: 0 0 1.2rem; max-width: none; }
+.wyd-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.wyd-dots { display: flex; gap: .45rem; }
+.wyd-dots i { width: 2rem; height: .5rem; border-radius: 99px; background: rgba(0,0,0,.18); }
+.wyd-dots i.cur { background: var(--ink); } .wyd-dots i.ok { background: var(--green); } .wyd-dots i.no { background: var(--red); }
+.wyd-count { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.wyd-card { background: #fff; border-radius: 14px; padding: 1.5rem 1.6rem 1.6rem; }
+.wyd-scene { margin: 0 0 .4rem !important; font-size: .68rem !important; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.wyd-q { margin: 0 0 1.1rem !important; font-family: var(--font-head); font-size: clamp(1.25rem, 2.4vw, 1.7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.wyd-opts { display: grid; gap: .6rem; }
+.wyd-opts button { font: inherit; text-align: left; display: flex; gap: .8rem; align-items: center; padding: .9rem 1.1rem; background: var(--paper); color: var(--ink); border: 2px solid var(--line); border-radius: 12px; cursor: pointer; font-weight: 600; line-height: 1.35; transition: border-color .15s, background .15s, transform .15s; }
+.wyd-opts button:hover:not(:disabled) { border-color: var(--ink); transform: translateX(3px); }
+.wyd-opts button b { flex: none; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--ink); color: #fff; font-size: .8rem; }
+.wyd-opts button:disabled { cursor: default; }
+.wyd-opts button.right { background: #e6f4ee; border-color: var(--green); }
+.wyd-opts button.wrong { background: #fbe9e6; border-color: var(--red); }
+.wyd-opts button.dim { opacity: .55; }
+.wyd-fb { margin-top: 1.1rem; padding: 1rem 1.2rem; border-radius: 12px; background: var(--paper); }
+.wyd-verdict { margin: 0 0 .25rem !important; font-weight: 800; font-size: 1.1rem !important; }
+.wyd-verdict.ok { color: var(--green); } .wyd-verdict.no { color: var(--red); }
+.wyd-why { margin: 0 !important; }
+.wyd-next { margin-top: .9rem; font: inherit; font-weight: 800; padding: .7rem 1.4rem; background: var(--ink); color: #fff; border: 0; border-radius: 999px; cursor: pointer; }
+.wyd-next:hover { background: var(--asphalt-2); }
+.wyd-end { text-align: center; padding: .5rem 0; }
+.wyd-end .sd-big { margin: .3rem 0 .6rem; }
+.wyd-end p { max-width: none; margin: 0 auto .9rem; }
+.wyd-links { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; margin-top: 1rem; }
+.wyd-links a, .wyd-links button { font: inherit; font-weight: 800; padding: .7rem 1.4rem; border-radius: 999px; text-decoration: none; cursor: pointer; border: 2px solid var(--ink); background: var(--ink); color: #fff; }
+.wyd-links .ghost { background: transparent; color: var(--ink); }
+
+.g-check { margin-top: 1.5rem; }
+.checklist li { position: relative; padding-left: 2.1rem; margin: .6rem 0; line-height: 1.5; }
+.checklist li::before { content: "\2713"; position: absolute; left: 0; top: .1em; display: grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--green); color: #fff; font-size: .8rem; font-weight: 800; }
+details.deeper { max-width: none; width: 100%; margin-top: 1.5rem; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+details.deeper > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.5rem; cursor: pointer; font-family: var(--font-head); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; list-style: none; }
+details.deeper > summary::-webkit-details-marker { display: none; }
+details.deeper > summary em { font-style: normal; font-family: inherit; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+details.deeper > summary::after { content: "+"; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--yellow); font-weight: 800; flex: none; }
+details.deeper[open] > summary::after { content: "\2212"; }
+details.deeper > .v-habits, details.deeper > .v-extra { padding: 0 1.5rem 1.5rem; }
+.v-habits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.v-habits .v-card, .v-extra .v-card { background: var(--paper); border: 0; }
+.v-extra { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.v-extra .v-card.note { background: #fff8e3; }
+.tips li { position: relative; padding-left: 1.15rem; margin: .5rem 0; line-height: 1.45; font-size: .96rem; }
+.tips li::before { content: ""; position: absolute; left: 0; top: .6em; width: .5rem; height: .5rem; border-radius: 2px; background: var(--accent); }
+
+#core-habits { background: var(--concrete); }
+.core-list { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0 0; padding: 0; max-width: none; counter-reset: core; }
+main ol.core-list > li { counter-increment: core; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.2rem 1.4rem; margin: 0; }
+main ol.core-list > li::before { content: counter(core); position: static; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 0; border-radius: 50%; background: var(--yellow); color: var(--ink); font-family: var(--font-head); font-weight: 800; margin-bottom: .8rem; }
+.core-list strong { display: block; font-family: var(--font-head); font-size: 1.2rem; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: .35rem; }
+.core-list span { color: var(--muted); font-size: .95rem; line-height: 1.5; display: block; }
+.v-more { padding: 1.3rem 1.5rem; background: var(--asphalt); color: #fff; border-radius: 14px; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
+.v-more p { margin: 0; color: #d9e1dc; max-width: 60ch; }
+.v-more a { color: var(--yellow); font-weight: 800; } .v-more a:hover { color: #fff; }
+.sv-road { fill: #6b7075; } .sv-line { stroke: #fff; stroke-width: 3; stroke-dasharray: 14 12; fill: none; opacity: .85; }
+.sv-green { fill: var(--green); } .sv-blue { fill: var(--blue); } .sv-ink { fill: var(--ink); }
+.sv-oil { fill: #8a6a3a; opacity: .85; } .sv-warn { fill: var(--red); opacity: .38; }
+.sv-t { font-size: 13px; font-weight: 700; fill: var(--ink); } .sv-tw { font-size: 13px; font-weight: 700; fill: #fff; }
+@media (max-width: 1000px) { .pick-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .core-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v-habits { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .g-visuals.has-fig, .v-extra, .remember ol { grid-template-columns: 1fr; } .remember li { padding-top: 2.9rem; } }
+@media (max-width: 620px) { .pick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pick:last-child { grid-column: 1 / -1; } .core-list { grid-template-columns: 1fr; } .wyd, .remember { padding: 1.3rem 1.2rem 1.5rem; } .wyd-card { padding: 1.2rem; } section.guide { padding: 2.25rem var(--gutter) 3.5rem; } .js #picker.compact .pick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .js .guide.active { animation: none; } .pick, .sd-bar i, .wyd-opts button { transition: none; } }
+
+/* sliding nav pill */
+header.home-header nav ul { position: relative; }
+header.home-header nav a { position: relative; z-index: 1; }
+.nav-pill { position: absolute; top: 0; left: 0; z-index: 0; border-radius: 999px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.2); pointer-events: none; transition: transform .42s cubic-bezier(.2,.8,.2,1), width .42s cubic-bezier(.2,.8,.2,1), height .42s cubic-bezier(.2,.8,.2,1); will-change: transform, width; }
+header.home-header nav.has-pill a[aria-current="page"] { background: transparent; box-shadow: none; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+main { animation: pageIn .4s ease both; }
+@media (prefers-reduced-motion: reduce) { .nav-pill { transition: none; } main { animation: none; } }
+    </style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<div class="site-notice">Know the rule. Respect the road. Get home safe.</div>
+
+
+<header class="home-header">
+    <a href="index.html"><strong>RoadWise</strong> <span>Pakistan road guide</span></a>
+    <nav aria-label="Main">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signs-and-fines.html">Signs, Rules &amp; Fines</a></li>
+            <li><a href="vehicle-guides.html" aria-current="page">Ride Guides</a></li>
+            <li><a href="emergency.html">Emergency</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section id="page-intro">
+        <p>Ride and drive guides</p>
+        <h1>Pick your ride. Get your two&#8209;minute guide.</h1>
+        <p class="v-intro-note">No long reading. Three rules to remember, something to try, and four real situations to test yourself on.</p>
+    </section>
+
+    <section id="picker">
+        <h2>Which one are you?</h2>
+        <div class="pick-grid"><a class="pick" href="#bikes" style="--accent: var(--red);"><span class="pick-ic"><svg viewBox="0 0 64 40" aria-hidden="true"><circle cx="13" cy="28" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="51" cy="28" r="9" fill="none" stroke="currentColor" stroke-width="3"/><path d="M13 28 L26 12 H38 L51 28 M26 12 L32 28 H45 M38 12 L34 6 H42" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></span><strong>Motorbike</strong><span class="pick-tag">Hard to see, nothing around you</span><span class="pick-go">2-minute guide <b aria-hidden="true">&rarr;</b></span></a><a class="pick" href="#cars" style="--accent: var(--blue);"><span class="pick-ic"><svg viewBox="0 0 64 40" aria-hidden="true"><path d="M5 28 V22 L13 12 H44 L56 20 V28 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="17" cy="29" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/><circle cx="46" cy="29" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/><path d="M20 12 V20 H36 V12" fill="none" stroke="currentColor" stroke-width="3"/></svg></span><strong>Car</strong><span class="pick-tag">Mirrors miss what matters</span><span class="pick-go">2-minute guide <b aria-hidden="true">&rarr;</b></span></a><a class="pick" href="#rickshaws" style="--accent: var(--yellow);"><span class="pick-ic"><svg viewBox="0 0 64 40" aria-hidden="true"><path d="M8 28 V16 L18 8 H46 V28 Z M8 16 H18 V8" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="14" cy="30" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/><circle cx="46" cy="30" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/><path d="M56 30 H61" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><strong>Rickshaw</strong><span class="pick-tag">Three wheels, no doors</span><span class="pick-go">2-minute guide <b aria-hidden="true">&rarr;</b></span></a><a class="pick" href="#vans" style="--accent: var(--green);"><span class="pick-ic"><svg viewBox="0 0 64 40" aria-hidden="true"><path d="M4 28 V8 H38 V28 M38 14 H50 L60 22 V28 H38" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="30" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/><circle cx="50" cy="30" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/></svg></span><strong>Van &amp; pickup</strong><span class="pick-tag">Heavy, tall and often overloaded</span><span class="pick-go">2-minute guide <b aria-hidden="true">&rarr;</b></span></a><a class="pick" href="#buses" style="--accent: var(--orange);"><span class="pick-ic"><svg viewBox="0 0 64 40" aria-hidden="true"><rect x="3" y="6" width="58" height="23" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M3 18 H61 M16 6 V18 M30 6 V18 M44 6 V18" stroke="currentColor" stroke-width="3"/><circle cx="16" cy="31" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="31" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="3"/></svg></span><strong>Bus &amp; truck</strong><span class="pick-tag">Big, slow to stop, big blind zones</span><span class="pick-go">2-minute guide <b aria-hidden="true">&rarr;</b></span></a></div>
+    </section>
+
+    <div id="guides">
+    <section class="guide" id="bikes" data-v="bikes" style="--accent: var(--red);">
+        <div class="g-head">
+            <p class="g-switch" aria-label="Switch vehicle"><span>Switch:</span><a href="#bikes" aria-current="true">Motorbike</a><a href="#cars">Car</a><a href="#rickshaws">Rickshaw</a><a href="#vans">Van &amp; pickup</a><a href="#buses">Bus &amp; truck</a></p>
+            <h2>Motorbikes &amp; scooters</h2>
+            <p class="v-danger"><strong>Biggest danger:</strong> No protection, and drivers often don't see you.</p>
+        </div>
+
+        <div class="remember">
+            <h3>If you remember nothing else</h3>
+            <ol><li>Wear a fastened helmet, every ride.</li><li>Keep three seconds behind the vehicle ahead.</li><li>Assume the driver hasn't seen you.</li></ol>
+        </div>
+
+        <div class="g-visuals has-fig">
+            <div class="v-card sd" data-v="bikes"><p class="eyebrow-d">Try it</p><h3>How far will you travel before you stop?</h3><div class="sd-body"></div></div>
+            <figure class="v-fig tog" data-on="Show the oil" data-off="Hide the oil"><svg viewBox="0 0 420 300" role="img" aria-label="Top view of a lane. A motorbike rides in the middle where oil collects; pressing the button shows the oil strip and the clean wheel tracks.">
+<rect x="40" y="10" width="340" height="280" class="sv-road" rx="6"/><path d="M210 10 V290" class="sv-line"/>
+<g class="ov"><rect x="175" y="30" width="70" height="250" class="sv-oil" rx="8"/><rect x="95" y="30" width="30" height="250" class="sv-green" rx="8" opacity=".9"/><rect x="295" y="30" width="30" height="250" class="sv-green" rx="8" opacity=".9"/>
+<text x="210" y="150" text-anchor="middle" class="sv-tw">Oil &amp; grit</text><text x="210" y="168" text-anchor="middle" class="sv-tw">avoid</text>
+<text x="110" y="24" text-anchor="middle" class="sv-tw" style="font-size:12px">Ride here</text><text x="310" y="24" text-anchor="middle" class="sv-tw" style="font-size:12px">or here</text></g>
+<rect x="204" y="170" width="12" height="70" rx="6" fill="#fff"/><circle cx="210" cy="160" r="7" fill="#fff"/></svg><figcaption><button type="button" class="tog-btn" aria-pressed="false">Show the oil</button><span>Oil and grit collect in the middle of a lane. Ride in the clean wheel track.</span></figcaption></figure>
+        </div>
+
+        <div class="wyd" data-v="bikes"><noscript><p>Turn on JavaScript to play the scenarios.</p></noscript></div>
+
+        <div class="v-card g-check"><h3>30-second check</h3><ul class="checklist"><li>Helmet on, strap fastened</li><li>Both brakes firm</li><li>Tyres: pressure and tread</li><li>Lights, indicators, horn</li><li>Gloves, jacket, closed shoes</li></ul></div>
+
+        <details class="deeper">
+            <summary><span>Go deeper: more habits</span><em>2 min read</em></summary>
+            <div class="v-habits"><div class="v-card"><h4>Speed &amp; braking</h4><ul class="tips"><li>Squeeze both brakes, front slightly more.</li><li>Brake before the bend, not in it.</li><li>Take speed breakers slowly, bike upright.</li><li>At night, ride within your headlight's reach.</li></ul></div><div class="v-card"><h4>Position &amp; visibility</h4><ul class="tips"><li>Ride in the clean wheel track.</li><li>Stay out of truck and bus blind spots.</li><li>Headlight on, even by day.</li><li>Signal early, then shoulder-check.</li></ul></div><div class="v-card"><h4>Junctions &amp; overtaking</h4><ul class="tips"><li>Overtake on the right only, with a clear view.</li><li>Never weave between moving vehicles.</li><li>Stay off the footpath.</li><li>Expect cars from every gate and side road.</li></ul></div></div>
+            <div class="v-extra"><div class="v-card"><h4>Rain, fog, night</h4><p>Double your gap and brake earlier and gentler. In fog use low beam; if you can't see, pull off and wait.</p></div><div class="v-card note"><h4>Passengers &amp; loads</h4><p>One pillion, with a helmet and feet on the rests. Keep loads low and clear of wheels. Never ride tired or after alcohol.</p></div></div>
+        </details>
+    </section>
+    <section class="guide" id="cars" data-v="cars" style="--accent: var(--blue);">
+        <div class="g-head">
+            <p class="g-switch" aria-label="Switch vehicle"><span>Switch:</span><a href="#bikes">Motorbike</a><a href="#cars" aria-current="true">Car</a><a href="#rickshaws">Rickshaw</a><a href="#vans">Van &amp; pickup</a><a href="#buses">Bus &amp; truck</a></p>
+            <h2>Passenger cars</h2>
+            <p class="v-danger"><strong>Biggest danger:</strong> Blind spots, tailgating and anything that takes your eyes off the road.</p>
+        </div>
+
+        <div class="remember">
+            <h3>If you remember nothing else</h3>
+            <ol><li>Belts on, front and back.</li><li>Three-second gap, six in rain or fog.</li><li>Shoulder-check before every lane change.</li></ol>
+        </div>
+
+        <div class="g-visuals has-fig">
+            <div class="v-card sd" data-v="cars"><p class="eyebrow-d">Try it</p><h3>How far will you travel before you stop?</h3><div class="sd-body"></div></div>
+            <figure class="v-fig tog" data-on="Show the blind spots" data-off="Hide the blind spots"><svg viewBox="0 0 420 300" role="img" aria-label="Top view of a car with a motorbike hiding beside it; pressing the button shows the blind spot zones.">
+<rect width="420" height="300" fill="#eef1f3"/>
+<path d="M195 70 L150 5 L270 5 L225 70 Z" fill="var(--green)" opacity=".25"/>
+<g class="ov"><path d="M185 150 L70 290 L185 290 Z" class="sv-warn"/><path d="M235 150 L350 290 L235 290 Z" class="sv-warn"/>
+<text x="110" y="268" text-anchor="middle" class="sv-t">Blind spot</text><text x="310" y="268" text-anchor="middle" class="sv-t">Blind spot</text></g>
+<rect x="180" y="70" width="60" height="120" rx="22" class="sv-blue"/><rect x="190" y="88" width="40" height="22" rx="6" fill="#dbe7f5"/><rect x="190" y="142" width="40" height="20" rx="6" fill="#dbe7f5"/>
+<rect x="116" y="208" width="10" height="46" rx="5" class="sv-ink"/><circle cx="121" cy="200" r="6" class="sv-ink"/>
+<text x="210" y="28" text-anchor="middle" class="sv-t">What you see</text></svg><figcaption><button type="button" class="tog-btn" aria-pressed="false">Show the blind spots</button><span>A bike or rickshaw can sit unseen beside you, even with mirrors set properly.</span></figcaption></figure>
+        </div>
+
+        <div class="wyd" data-v="cars"><noscript><p>Turn on JavaScript to play the scenarios.</p></noscript></div>
+
+        <div class="v-card g-check"><h3>30-second check</h3><ul class="checklist"><li>Seatbelts on, everyone</li><li>Mirrors set, windscreen clean</li><li>Tyres and a working spare</li><li>Lights, wipers, horn</li><li>Phone away, route set</li></ul></div>
+
+        <details class="deeper">
+            <summary><span>Go deeper: more habits</span><em>2 min read</em></summary>
+            <div class="v-habits"><div class="v-card"><h4>Speed &amp; distance</h4><ul class="tips"><li>Slow down in bazaars, near schools and at night.</li><li>Add gap on wet or foggy roads.</li><li>Expect pedestrians at crossings and stops.</li><li>Take speed breakers slowly.</li></ul></div><div class="v-card"><h4>Position &amp; visibility</h4><ul class="tips"><li>Check mirrors every few seconds.</li><li>Signal early. Hazards only when stopped.</li><li>Dip lights for oncoming, fog lights in fog only.</li><li>Check behind before reversing, especially for children.</li></ul></div><div class="v-card"><h4>Focus &amp; fitness</h4><ul class="tips"><li>No phone in your hand.</li><li>No driving tired or after alcohol.</li><li>Plan rest stops.</li><li>Secure loose items.</li></ul></div></div>
+            <div class="v-extra"><div class="v-card"><h4>Fog, rain, floods</h4><p>Use low beam in fog and slow right down. Never drive into flooded underpasses.</p></div><div class="v-card note"><h4>Kids &amp; CNG</h4><p>Children in the back, belted, child locks on. Never leave a child in a parked car. At CNG fuelling, engine off, follow the station's rules. Smell gas: stop, switch off, get out.</p></div></div>
+        </details>
+    </section>
+    <section class="guide" id="rickshaws" data-v="rickshaws" style="--accent: var(--yellow);">
+        <div class="g-head">
+            <p class="g-switch" aria-label="Switch vehicle"><span>Switch:</span><a href="#bikes">Motorbike</a><a href="#cars">Car</a><a href="#rickshaws" aria-current="true">Rickshaw</a><a href="#vans">Van &amp; pickup</a><a href="#buses">Bus &amp; truck</a></p>
+            <h2>Auto rickshaws</h2>
+            <p class="v-danger"><strong>Biggest danger:</strong> They roll over in sharp turns, and nothing protects the people inside.</p>
+        </div>
+
+        <div class="remember">
+            <h3>If you remember nothing else</h3>
+            <ol><li>Slow right down before every turn.</li><li>Never carry more than the seat limit.</li><li>Pull fully left before you stop.</li></ol>
+        </div>
+
+        <div class="g-visuals">
+            <div class="v-card sd" data-v="rickshaws"><p class="eyebrow-d">Try it</p><h3>How far will you travel before you stop?</h3><div class="sd-body"></div></div>
+            
+        </div>
+
+        <div class="wyd" data-v="rickshaws"><noscript><p>Turn on JavaScript to play the scenarios.</p></noscript></div>
+
+        <div class="v-card g-check"><h3>30-second check</h3><ul class="checklist"><li>Brakes hold firmly</li><li>Tyres: pressure and tread</li><li>Lights and reflectors</li><li>Seats and handrails secure</li><li>No smell of gas</li></ul></div>
+
+        <details class="deeper">
+            <summary><span>Go deeper: more habits</span><em>2 min read</em></summary>
+            <div class="v-habits"><div class="v-card"><h4>If you drive one</h4><ul class="tips"><li>Keep both hands on the handlebar, except to signal.</li><li>Brake early and in a straight line.</li><li>Keep left. Don't cut across lanes.</li><li>Slow down for potholes instead of swerving.</li></ul></div><div class="v-card"><h4>If you are a passenger</h4><ul class="tips"><li>Sit fully inside and hold the handrail.</li><li>Keep bags and arms inside.</li><li>Ask the driver to slow down if turns feel fast.</li><li>At night, share the number plate if you travel alone.</li></ul></div><div class="v-card"><h4>If you share the road</h4><ul class="tips"><li>Give them room. They stop and turn suddenly.</li><li>Don't overtake close.</li><li>Watch for them coming out of side lanes.</li></ul></div></div>
+            <div class="v-extra"><div class="v-card"><h4>Rain &amp; night</h4><p>Wet roads need slower speed and longer gaps. Check the tail light and reflectors before dusk.</p></div><div class="v-card note"><h4>CNG safety</h4><p>Engine off when refuelling. If you smell gas, stop, switch off and move away from flames.</p></div></div>
+        </details>
+    </section>
+    <section class="guide" id="vans" data-v="vans" style="--accent: var(--green);">
+        <div class="g-head">
+            <p class="g-switch" aria-label="Switch vehicle"><span>Switch:</span><a href="#bikes">Motorbike</a><a href="#cars">Car</a><a href="#rickshaws">Rickshaw</a><a href="#vans" aria-current="true">Van &amp; pickup</a><a href="#buses">Bus &amp; truck</a></p>
+            <h2>Vans, pickups &amp; loaders</h2>
+            <p class="v-danger"><strong>Biggest danger:</strong> A loaded vehicle stops slowly and tips easily, and loose loads or riders in the back can be thrown out.</p>
+        </div>
+
+        <div class="remember">
+            <h3>If you remember nothing else</h3>
+            <ol><li>Tie the load and respect the limit.</li><li>Leave a bigger gap when loaded.</li><li>Nobody rides in the open back.</li></ol>
+        </div>
+
+        <div class="g-visuals">
+            <div class="v-card sd" data-v="vans"><p class="eyebrow-d">Try it</p><h3>How far will you travel before you stop?</h3><div class="sd-body"></div></div>
+            
+        </div>
+
+        <div class="wyd" data-v="vans"><noscript><p>Turn on JavaScript to play the scenarios.</p></noscript></div>
+
+        <div class="v-card g-check"><h3>30-second check</h3><ul class="checklist"><li>Load tied and within the limit</li><li>Overhang marked (cloth or light)</li><li>Tyres inflated for the load</li><li>Brakes firm</li><li>Doors locked (passenger vans)</li></ul></div>
+
+        <details class="deeper">
+            <summary><span>Go deeper: more habits</span><em>2 min read</em></summary>
+            <div class="v-habits"><div class="v-card"><h4>Speed &amp; braking</h4><ul class="tips"><li>Leave extra distance whenever you carry weight.</li><li>Slow early for turns and junctions.</li><li>Use lower gears on descents.</li><li>Don't tailgate.</li></ul></div><div class="v-card"><h4>Loads &amp; passengers</h4><ul class="tips"><li>Never carry people in the open back.</li><li>Don't overload, even for a short trip.</li><li>Passenger vans: no standing, nobody on the roof.</li><li>Stop only at safe places.</li></ul></div><div class="v-card"><h4>Fitness &amp; parking</h4><ul class="tips"><li>Rest before long trips.</li><li>Use the handbrake, park on level ground.</li><li>Check behind before pulling away.</li><li>Engine off when loading.</li></ul></div></div>
+            <div class="v-extra"><div class="v-card"><h4>Wet roads &amp; fog</h4><p>Leave a longer gap when loaded. In fog use low beam and never stop in a live lane.</p></div><div class="v-card note"><h4>School &amp; passenger vans</h4><p>Count seats and never exceed them. Doors closed and locked while moving. Children seated, bags stowed.</p></div></div>
+        </details>
+    </section>
+    <section class="guide" id="buses" data-v="buses" style="--accent: var(--orange);">
+        <div class="g-head">
+            <p class="g-switch" aria-label="Switch vehicle"><span>Switch:</span><a href="#bikes">Motorbike</a><a href="#cars">Car</a><a href="#rickshaws">Rickshaw</a><a href="#vans">Van &amp; pickup</a><a href="#buses" aria-current="true">Bus &amp; truck</a></p>
+            <h2>Buses &amp; trucks</h2>
+            <p class="v-danger"><strong>Biggest danger:</strong> Long stopping distance, wide turns and large blind zones. Fatigue and speed make it worse.</p>
+        </div>
+
+        <div class="remember">
+            <h3>If you remember nothing else</h3>
+            <ol><li>Never race, never stop mid-lane.</li><li>Leave a much bigger gap than a car.</li><li>Doors closed, nobody on the roof.</li></ol>
+        </div>
+
+        <div class="g-visuals has-fig">
+            <div class="v-card sd" data-v="buses"><p class="eyebrow-d">Try it</p><h3>How far will you travel before you stop?</h3><div class="sd-body"></div></div>
+            <figure class="v-fig tog" data-on="Show the no-zones" data-off="Hide the no-zones"><svg viewBox="0 0 420 300" role="img" aria-label="Top view of a truck with a bike beside it; pressing the button shows the red no-zones in front, behind and on both sides.">
+<rect width="420" height="300" fill="#eef1f3"/>
+<g class="ov"><rect x="105" y="60" width="85" height="190" class="sv-warn"/><rect x="230" y="110" width="45" height="140" class="sv-warn"/><rect x="150" y="5" width="120" height="48" class="sv-warn"/><rect x="150" y="250" width="120" height="45" class="sv-warn"/>
+<text x="147" y="160" text-anchor="middle" class="sv-t" style="font-size:12px">Biggest</text><text x="147" y="176" text-anchor="middle" class="sv-t" style="font-size:12px">blind spot</text><text x="210" y="277" text-anchor="middle" class="sv-t" style="font-size:12px">Behind: no view</text></g>
+<rect x="190" y="45" width="40" height="40" rx="8" fill="#444"/><rect x="190" y="90" width="40" height="160" rx="6" fill="#2f353a"/>
+<rect x="136" y="190" width="10" height="46" rx="5" class="sv-ink"/><circle cx="141" cy="182" r="6" class="sv-ink"/></svg><figcaption><button type="button" class="tog-btn" aria-pressed="false">Show the no-zones</button><span>If you can't see the driver's mirrors, the driver can't see you.</span></figcaption></figure>
+        </div>
+
+        <div class="wyd" data-v="buses"><noscript><p>Turn on JavaScript to play the scenarios.</p></noscript></div>
+
+        <div class="v-card g-check"><h3>30-second check</h3><ul class="checklist"><li>Brakes and air pressure</li><li>Tyres and wheel nuts</li><li>Lights, mirrors, reflective tape</li><li>Doors and emergency exits</li><li>Driver rested</li></ul></div>
+
+        <details class="deeper">
+            <summary><span>Go deeper: more habits</span><em>2 min read</em></summary>
+            <div class="v-habits"><div class="v-card"><h4>If you drive one</h4><ul class="tips"><li>Rest properly and keep to driving-hours limits.</li><li>Check mirrors constantly.</li><li>Slow for bends, junctions and crowded stops.</li><li>Never exceed the load or passenger limit.</li></ul></div><div class="v-card"><h4>If you are a passenger</h4><ul class="tips"><li>Wait for the bus to stop before boarding or leaving.</li><li>Hold on. Stay seated or behind the line.</li><li>Keep arms and bags inside, stay off the roof.</li><li>Know where the emergency exit is.</li></ul></div><div class="v-card"><h4>If you share the road</h4><ul class="tips"><li>Stay out of the no-zones, especially the left side.</li><li>Pass quickly and cleanly. Don't cut in.</li><li>Keep back. If you can't see the mirrors, they can't see you.</li></ul></div></div>
+            <div class="v-extra"><div class="v-card"><h4>Highway breakdown</h4><p>Pull as far off as you can, hazards on, warning triangle well behind. Get everyone off the traffic side.</p></div><div class="v-card note"><h4>Night &amp; fog</h4><p>Check lights and reflective tape. Never park on the carriageway. If you must stop, hazards and triangles.</p></div></div>
+        </details>
+    </section>
+    </div>
+
+    <section id="core-habits">
+        <h2>Five habits for every road user</h2>
+        <ol class="core-list"><li><strong>Look far ahead</strong><span>Scan beyond the vehicle in front. Early warning means calm reactions.</span></li><li><strong>Keep your gap</strong><span>Three seconds in the dry. Double it in rain or fog.</span></li><li><strong>Be seen</strong><span>Lights on, signal early, never assume you've been noticed.</span></li><li><strong>Slow before the hazard</strong><span>Junctions, bends, crossings, bazaars, speed breakers.</span></li><li><strong>Stay focused</strong><span>No phone in hand. No driving tired or after alcohol.</span></li></ol>
+    </section>
+
+    <section id="more">
+        <div class="v-more">
+            <p>Ready to test yourself? Take the road sign test or the rules quiz. And read what to do if something goes wrong.</p>
+            <p><a href="quiz.html">Take the quiz</a> &nbsp;|&nbsp; <a href="emergency.html">Emergency guide</a> &nbsp;|&nbsp; <a href="signs-and-fines.html">Signs &amp; fines</a></p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>RoadWise</strong>: clear guidance for safer roads.</p>
+    <nav aria-label="Footer">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Take the quiz</a></li>
+            <li><a href="emergency.html#hotlines">Emergency numbers</a></li>
+        </ul>
+    </nav>
+    <p><small>&copy; 2026 RoadWise. Educational guidance only. Always follow local traffic law.</small></p>
+</footer>
+
+<script>
+(function () {
+    var DATA = {"bikes": {"mu": [0.6, 0.35], "smin": 20, "smax": 80, "sdef": 40, "scen": [["Junction", "A car waits to turn at the junction ahead, and the driver is looking your way.", ["Keep your speed. You have right of way.", "Slow down, cover the brakes, and watch its front wheels.", "Speed up to cross before it moves."], 1, "Drivers often look but don't register a bike. The wheels show you if the car is about to move."], ["Rain", "It has just started raining and the road is shiny.", ["Ride the same speed and brake as normal.", "Slow down, double your gap and brake gently.", "Move to the middle of the lane where it looks cleaner."], 1, "The first rain lifts oil. The middle of the lane is the slipperiest part. Slow down and brake gently."], ["Parked cars", "You are passing a row of parked cars in a busy bazaar.", ["Pass close to save time.", "Leave a door's width and look for people inside.", "Honk and speed past."], 1, "A door can open, or someone can step out, with no warning. A door's width gives you room to swerve."], ["Night", "It is dark, the road is unlit and speed breakers are unmarked.", ["Speed up to get through quickly.", "Slow so you can stop within your headlight beam.", "Follow close behind a truck."], 1, "If you can't stop within the distance you can see, you'll hit whatever appears. Slow down."]]}, "cars": {"mu": [0.7, 0.4], "smin": 20, "smax": 120, "sdef": 60, "scen": [["Traffic", "You are close behind a car in slow traffic.", ["Stay close so nobody cuts in.", "Drop back to a three-second gap.", "Flash your lights at the car ahead."], 1, "A close gap leaves no time to react. Three seconds gives you room to brake smoothly."], ["Lane change", "You want to change lanes. The mirrors look clear.", ["Move over now.", "Signal, glance over your shoulder, then move.", "Honk and move."], 1, "Bikes and rickshaws sit in blind spots that mirrors don't show. Always shoulder-check."], ["Flood", "The underpass ahead is flooded after heavy rain.", ["Drive through slowly.", "Turn around and find another route.", "Follow the car in front."], 1, "Water hides its depth and damage. Cars stall or get swept away. If in doubt, turn around."], ["Fatigue", "You've been driving for four hours and your eyes feel heavy.", ["Open the window and push on.", "Pull off somewhere safe and rest.", "Turn up the music."], 1, "Tiredness slows your reactions. Fresh air and music don't fix it. Stop and rest."]]}, "rickshaws": {"mu": [0.6, 0.35], "smin": 20, "smax": 70, "sdef": 35, "scen": [["Sharp turn", "You have a full load and a sharp turn is coming up.", ["Take it fast to keep momentum.", "Slow to near walking pace before the turn.", "Brake hard in the middle of the turn."], 1, "The track is narrow and the load is high, so a fast turn can tip you over. Slow down before the turn."], ["Fare", "A passenger waves at you from the middle of the road.", ["Stop right there.", "Check your mirror, signal, pull fully left, then stop.", "Brake and reverse back to them."], 1, "Stopping in a live lane gets you hit from behind. Pull fully off first."], ["Passenger", "You are a passenger and the driver takes bends too fast.", ["Hold the handrail and ask them to slow down.", "Say nothing and hope for the best.", "Stand up to see ahead."], 0, "You have the right to ask. Hold on, keep arms inside and speak up."], ["Overload", "Five people want a ride and the seat is for three.", ["Take them. It's a short trip.", "Take three and politely refuse the rest.", "Let two hang on the sides."], 1, "Extra weight makes braking longer and tipping easier. Respect the limit."]]}, "vans": {"mu": [0.55, 0.35], "smin": 20, "smax": 100, "sdef": 50, "scen": [["Heavy load", "You are carrying a heavy load. How much gap do you leave?", ["The same as when empty.", "A bigger gap than usual.", "Closer. You're heavy, so you'll push through."], 1, "More weight means a longer stopping distance. Leave extra room and slow early."], ["Reversing", "You need to reverse and children are playing near the back.", ["Reverse slowly using mirrors.", "Get out, check behind, then use a helper.", "Honk and go."], 1, "There is a large blind area behind you. Check on foot and use a helper."], ["Descent", "A long downhill is coming up.", ["Select a low gear first and let the engine help.", "Coast in neutral to save fuel.", "Ride the brake pedal all the way down."], 0, "Constant braking overheats the brakes until they fade. Use a low gear before you start."], ["Overhang", "Your load sticks out behind and it is getting dark.", ["Nothing, others will see it.", "Mark it with a red cloth by day, and a light or reflector at night.", "Drive faster to arrive before dark."], 1, "An unmarked overhang is invisible at night. Mark it so others can see it."]]}, "buses": {"mu": [0.5, 0.3], "smin": 20, "smax": 100, "sdef": 50, "scen": [["Racing", "Another bus is racing you for passengers.", ["Race back to keep your passengers.", "Hold your speed and let it go.", "Cut in front of it."], 1, "Racing is how buses crash. Lost passengers cost far less than a crash."], ["Tight turn", "You are turning at a tight corner and a bike is on your left.", ["Turn now. It will move.", "Wait for the bike to pass, and check both mirrors.", "Honk and turn."], 1, "Your biggest blind spot is on the left. Wait until the bike is clear before you turn."], ["Downhill", "A long descent and your brakes smell hot.", ["Keep pressing the brake pedal.", "Drop to a lower gear and let the engine slow you.", "Switch off the engine."], 1, "Hot brakes fade. Use engine braking and short brake applications. Never switch the engine off."], ["Doors", "Passengers are hanging out of the doorway.", ["Keep moving. They'll manage.", "Stop safely and ask them to move inside.", "Speed up to reach the stop sooner."], 1, "People fall from doors and roofs. Don't move off until everyone is safe inside."]]}};
+    var $ = function (s, r) { return (r || document).querySelector(s); };
+    var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+    var guides = $$('.guide'), picks = $$('.pick'), picker = $('#picker');
+    var built = {};
+
+    /* ---------- stopping distance explorer ---------- */
+    function buildSD(box, v) {
+        var d = DATA[v], wet = false, body = $('.sd-body', box), REACT = 1.5, G = 9.81;
+        function calc(kmh, w) { var ms = kmh / 3.6, mu = d.mu[w ? 1 : 0]; return { r: ms * REACT, b: ms * ms / (2 * mu * G) }; }
+        var max = calc(d.smax, true); var maxTotal = max.r + max.b;
+        body.innerHTML =
+            '<div class="sd-ctrl"><div class="sd-speed"><label for="sd-' + v + '">Your speed</label><output id="sd-out-' + v + '"></output></div>' +
+            '<input id="sd-' + v + '" type="range" min="' + d.smin + '" max="' + d.smax + '" step="5" value="' + d.sdef + '">' +
+            '<div class="seg" role="group" aria-label="Road condition"><button type="button" data-w="0" aria-pressed="true">Dry road</button><button type="button" data-w="1" aria-pressed="false">Wet road</button></div></div>' +
+            '<div class="sd-result" aria-live="polite"><div class="sd-big"></div><div class="sd-bar"><i class="r"></i><i class="b"></i></div>' +
+            '<div class="sd-legend"><span><b style="background:var(--yellow)"></b>Reaction</span><span><b style="background:var(--red)"></b>Braking</span></div>' +
+            '<p class="sd-fun"></p><p class="sd-note">Approximate: an alert driver, good tyres and brakes, level road. Tiredness, worn tyres and heavy loads make it longer.</p></div>';
+        var range = $('input', body), out = $('output', body), big = $('.sd-big', body), r = $('.r', body), b = $('.b', body), fun = $('.sd-fun', body);
+        function upd() {
+            var kmh = +range.value, c = calc(kmh, wet), t = c.r + c.b, c10 = calc(Math.min(kmh + 10, d.smax + 10), wet);
+            out.textContent = kmh + ' km/h';
+            big.innerHTML = Math.round(t) + '<small>metres to stop</small>';
+            r.style.width = (100 * c.r / maxTotal) + '%'; b.style.width = (100 * c.b / maxTotal) + '%';
+            var p = t / 20.12;
+            fun.textContent = 'That is about ' + (p < 10 ? p.toFixed(1) : Math.round(p)) + ' cricket pitches. Going 10 km/h faster adds about ' + Math.round(c10.r + c10.b - t) + ' m.';
+        }
+        range.addEventListener('input', upd);
+        $$('.seg button', body).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                wet = btn.dataset.w === '1';
+                $$('.seg button', body).forEach(function (x) { x.setAttribute('aria-pressed', x === btn ? 'true' : 'false'); });
+                upd();
+            });
+        });
+        upd();
+    }
+
+    /* ---------- "what would you do?" ---------- */
+    function buildWYD(box, v) {
+        var scen = DATA[v].scen.slice(), idx = 0, score = 0, results = [], L = 'ABC';
+        function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+        function dots() { return scen.map(function (_, i) { return '<i class="' + (i < results.length ? (results[i] ? 'ok' : 'no') : (i === idx ? 'cur' : '')) + '"></i>'; }).join(''); }
+        function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+        function show() {
+            if (idx >= scen.length) return end();
+            var s = scen[idx], order = shuffle([0, 1, 2]);
+            box.innerHTML = '<h3>What would you do?</h3><p class="wyd-sub">' + scen.length + ' real situations. Tap your answer.</p>' +
+                '<div class="wyd-top"><div class="wyd-dots">' + dots() + '</div><span class="wyd-count">' + (idx + 1) + ' of ' + scen.length + '</span></div>' +
+                '<div class="wyd-card"><p class="wyd-scene">' + esc(s.s) + '</p><p class="wyd-q">' + esc(s.q) + '</p><div class="wyd-opts">' +
+                order.map(function (oi, k) { return '<button type="button" data-k="' + oi + '"><b>' + L[k] + '</b><span>' + esc(s.o[oi]) + '</span></button>'; }).join('') +
+                '</div><div class="wyd-fb" hidden aria-live="polite"><p class="wyd-verdict"></p><p class="wyd-why"></p><button type="button" class="wyd-next"></button></div></div>';
+            $$('.wyd-opts button', box).forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var ok = +btn.dataset.k === s.a;
+                    $$('.wyd-opts button', box).forEach(function (x) {
+                        x.disabled = true;
+                        if (+x.dataset.k === s.a) x.classList.add('right'); else if (x === btn) x.classList.add('wrong'); else x.classList.add('dim');
+                    });
+                    if (ok) score++; results.push(ok);
+                    var fb = $('.wyd-fb', box); fb.hidden = false;
+                    var vd = $('.wyd-verdict', fb); vd.className = 'wyd-verdict ' + (ok ? 'ok' : 'no'); vd.textContent = ok ? 'Safe call.' : 'Not the safe call.';
+                    $('.wyd-why', fb).textContent = s.w;
+                    var nx = $('.wyd-next', fb); nx.textContent = idx + 1 < scen.length ? 'Next situation \u2192' : 'See my result';
+                    $('.wyd-dots', box).innerHTML = dots();
+                    nx.addEventListener('click', function () { idx++; show(); box.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+                    nx.focus({ preventScroll: true });
+                });
+            });
+        }
+        function end() {
+            var msg = score === scen.length ? 'You think like a safe road user.' : score >= scen.length - 1 ? 'Nearly there. Read the answer you missed again.' : 'Worth another go. Try the situations again after skimming "Go deeper".';
+            box.innerHTML = '<h3>What would you do?</h3><div class="wyd-card wyd-end"><p class="wyd-scene">Your result</p><div class="sd-big">' + score + ' of ' + scen.length + '<small>safe calls</small></div><p>' + msg + '</p>' +
+                '<div class="wyd-links"><button type="button" class="again">Play again</button><a class="ghost" href="quiz.html">Test yourself in the quiz</a></div></div>';
+            $('.again', box).addEventListener('click', function () { idx = 0; score = 0; results = []; show(); });
+        }
+        scen = scen.map(function (s) { return { s: s[0], q: s[1], o: s[2], a: s[3], w: s[4] }; });
+        show();
+    }
+
+    /* ---------- toggles ---------- */
+    $$('figure.tog').forEach(function (f) {
+        var btn = $('.tog-btn', f);
+        btn.addEventListener('click', function () {
+            var on = f.classList.toggle('on');
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            btn.textContent = on ? f.dataset.off : f.dataset.on;
+        });
+    });
+
+    /* ---------- vehicle switching ---------- */
+    function activate(id, scroll) {
+        var g = $('#' + id); if (!g || !g.classList.contains('guide')) return false;
+        guides.forEach(function (x) { x.classList.toggle('active', x === g); });
+        picks.forEach(function (p) { p.setAttribute('aria-current', p.getAttribute('href') === '#' + id ? 'true' : 'false'); });
+        picker.classList.add('compact');
+        if (!built[id]) { buildSD($('.sd', g), id); buildWYD($('.wyd', g), id); built[id] = true; }
+        if (scroll) setTimeout(function () { picker.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30);
+        return true;
+    }
+    $$('.pick, .g-switch a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var id = a.getAttribute('href').slice(1);
+            e.preventDefault(); if (activate(id, true)) history.replaceState(null, '', '#' + id);
+        });
+    });
+    window.addEventListener('hashchange', function () { var id = location.hash.slice(1); if (!activate(id, true) && id) { var t = document.getElementById(id); if (t) t.scrollIntoView({ behavior: 'smooth' }); } });
+    if (location.hash) activate(location.hash.slice(1), true);
+})();
+</script>
+<script>
+(function () {
+    var nav = document.querySelector('header.home-header nav');
+    if (!nav) return;
+    var ul = nav.querySelector('ul');
+    var links = [].slice.call(ul.querySelectorAll('a'));
+    var pill = document.createElement('span');
+    pill.className = 'nav-pill'; pill.setAttribute('aria-hidden', 'true');
+    ul.insertBefore(pill, ul.firstChild);
+    var cur = ul.querySelector('a[aria-current="page"]');
+    function place(a, animate) {
+        var r = a.getBoundingClientRect(), u = ul.getBoundingClientRect();
+        pill.style.transition = animate ? '' : 'none';
+        pill.style.width = r.width + 'px'; pill.style.height = r.height + 'px';
+        pill.style.transform = 'translate(' + (r.left - u.left) + 'px,' + (r.top - u.top) + 'px)';
+        if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+    }
+    function fileOf(href) { return (new URL(href, location.href).pathname.split('/').pop() || 'index.html'); }
+    function sync() {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        links.forEach(function (l) { if (fileOf(l.href) === here) { l.setAttribute('aria-current', 'page'); cur = l; } else { l.removeAttribute('aria-current'); } });
+        if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    }
+    if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    window.addEventListener('resize', function () { if (cur) place(cur, false); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (cur) place(cur, false); });
+    links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button || a.target) return;
+            if (fileOf(a.href) === (location.pathname.split('/').pop() || 'index.html')) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            e.preventDefault();
+            links.forEach(function (l) { l.removeAttribute('aria-current'); });
+            a.setAttribute('aria-current', 'page'); cur = a; place(a, true);
+            setTimeout(function () { location.href = a.href; }, 360);
+        });
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Signs, Rules and Fines | RoadWise</title>
+    <meta name="description" content="Decode Pakistani road signs, road markings and traffic fines, plus the key rules of the road.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b3d2f'/%3E%3Cpath d='M30 82 L44 18 H56 L70 82 H60 L50 38 L40 82Z' fill='%23f2bd3f'/%3E%3C/svg%3E">
+    <style>
+
+:root {
+    --asphalt: #0b3d2f;
+    --asphalt-2: #124c3b;
+    --ink: #0c261d;
+    --concrete: #f5f1e8;
+    --paper: #fbf9f4;
+    --line: #d8d1c3;
+    --muted: #5d6c66;
+
+    --yellow: #f2bd3f;     
+    --red: #b43b3b;        
+    --blue: #175f59;       
+    --green: #0b3b2e;      
+    --orange: #c56a32;
+
+    --home-green: var(--asphalt);
+    --home-green-2: var(--asphalt-2);
+    --home-yellow: var(--yellow);
+
+    --font-head: "Manrope", system-ui, sans-serif;
+    --font-body: "Manrope", system-ui, sans-serif;
+
+    --page: 1180px;
+    --gutter: max(1.25rem, calc((100% - var(--page)) / 2));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body {
+    background: var(--concrete);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+img, svg, video { max-width: 100%; display: block; }
+ul { padding: 0; list-style: none; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 4px; }
+small { font-size: 0.85rem; color: var(--muted); }
+em { font-style: italic; }
+
+h1, h2, h3 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+h2 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
+h3 { font-size: 1.7rem; margin: 2.25rem 0 0.75rem; }
+
+h2::after {
+    content: "";
+    display: block;
+    width: min(240px, 55%);
+    height: 8px;
+    margin-top: 0.7rem;
+    background: repeating-linear-gradient(90deg, var(--dash, var(--yellow)) 0 30px, transparent 30px 46px);
+}
+
+header.home-header {
+    min-height: 70px;
+    background: var(--home-green);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem var(--gutter);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 3px solid var(--home-yellow); 
+}
+
+header.home-header > a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+header.home-header > a strong { font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; letter-spacing: -.04em; }
+header.home-header > a span { font-size: 0.68rem; color: var(--yellow); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+
+header.home-header nav {
+    background: rgba(18, 76, 59, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 0.35rem 0.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+header.home-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+header.home-header nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header.home-header nav a[aria-current="page"] {
+    background: #ffffff;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 800;
+}
+
+header.home-header nav a:not([aria-current="page"]):hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+main > section { padding: 4.5rem var(--gutter); }
+main > section > p { max-width: 68ch; }
+main > section > p + p { margin-top: 0.9rem; }
+main > section > h2 + p { color: var(--muted); }
+
+#hero, #page-intro {
+    background: var(--asphalt);
+    color: #fff;
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 5.5rem;
+}
+
+#hero::after, #page-intro::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 1.6rem;
+    height: 8px;
+    background: repeating-linear-gradient(90deg, var(--yellow) 0 60px, transparent 60px 100px);
+}
+#hero > p:first-child, #page-intro > p:first-child {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+#hero h1, #page-intro h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    max-width: 16ch;
+    margin-bottom: 1.25rem;
+}
+#page-intro h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); max-width: 18ch; }
+#hero p, #page-intro p { color: #d9e1dc; }
+#page-intro a { color: var(--yellow); }
+#page-intro a:hover { color: #fff; }
+#page-intro > p:last-child { margin-top: 1.25rem; }
+
+#hero {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    column-gap: 3rem;
+    align-items: center;
+}
+#hero > *:not(figure) { grid-column: 1; }
+#hero figure { grid-column: 2; grid-row: 1 / span 4; }
+#hero > p:nth-of-type(2) { font-size: 1.2rem; max-width: 50ch; }
+
+#hero p:has(> a) { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.75rem; }
+#hero p > a {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.85rem 1.4rem;
+    border-radius: 6px;
+    border: 2px solid var(--yellow);
+    background: var(--yellow);
+    color: var(--ink);
+}
+#hero p > a + a { background: transparent; color: #fff; }
+#hero p > a:hover { background: #fff; border-color: #fff; color: var(--ink); }
+
+#hero figure {
+    background: var(--asphalt-2);
+    border: 2px dashed rgba(255, 194, 14, 0.5);
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: var(--yellow);
+}
+#hero figure svg { width: 100%; height: auto; }
+#hero figcaption { color: #d9e1dc; font-size: 0.9rem; margin-top: 1rem; }
+
+#page-intro nav ul { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+#page-intro nav a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 2px solid var(--yellow);
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
+}
+#page-intro nav a:hover { background: var(--yellow); color: var(--ink); }
+
+#pick-vehicle ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+#pick-vehicle li { grid-column: span 2; }
+#pick-vehicle li:nth-child(n+4) { grid-column: span 3; }
+#pick-vehicle a {
+    display: block;
+    height: 100%;
+    padding: 1.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+#pick-vehicle a:hover { transform: translateY(-5px); color: #fff; }
+#pick-vehicle a strong { font-family: var(--font-head); font-size: 2rem; font-weight: 800; line-height: 1; display: block; margin-bottom: 0.4rem; }
+#pick-vehicle li:nth-child(1) a { background: var(--red); }
+#pick-vehicle li:nth-child(2) a { background: var(--blue); }
+#pick-vehicle li:nth-child(3) a { background: var(--yellow); color: var(--ink); }
+#pick-vehicle li:nth-child(4) a { background: var(--green); }
+#pick-vehicle li:nth-child(5) a { background: var(--asphalt); }
+#pick-vehicle li:nth-child(3) a:hover { color: var(--ink); }
+
+main ol { counter-reset: step; margin: 1.75rem 0; max-width: 760px; }
+main ol > li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.75rem 4.25rem;
+    border-left: 4px dashed var(--line);
+    margin-left: 1.4rem;
+}
+main ol > li:last-child { border-left-color: transparent; padding-bottom: 0; }
+main ol > li::before {
+    content: counter(step);
+    position: absolute;
+    left: -1.65rem; top: -0.15rem;
+    width: 3rem; height: 3rem;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 3px solid var(--ink);
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+main ol > li strong { display: block; font-size: 1.15rem; }
+
+#five-checks { background: var(--paper); }
+
+main dl { margin: 1.75rem 0; display: grid; gap: 1.25rem; max-width: 820px; }
+main dt {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    padding-left: 1rem;
+    border-left: 8px solid var(--red);
+}
+main dd { padding-left: calc(1rem + 8px); margin-top: 0.35rem; color: var(--muted); }
+#results dt { border-left-color: var(--green); }
+
+table { width: 100%; border-collapse: collapse; background: var(--paper); margin: 1.75rem 0 0.5rem; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+caption { text-align: left; font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; padding: 0 0 0.6rem; background: transparent; }
+th, td { padding: 0.85rem 1rem; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); }
+thead th { background: var(--asphalt); color: #fff; font-size: 0.9rem; }
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: #f4f0e7; }
+tbody tr:last-child > * { border-bottom: 0; }
+td svg { margin: 0 auto; }
+
+meter { width: min(220px, 40vw); height: 14px; vertical-align: middle; margin-right: 0.5rem; }
+meter::-webkit-meter-bar { background: #e5dfd2; border: 0; border-radius: 7px; }
+meter::-webkit-meter-optimum-value { background: var(--green); border-radius: 7px; }
+meter::-webkit-meter-suboptimum-value { background: var(--yellow); border-radius: 7px; }
+meter::-webkit-meter-even-less-good-value { background: var(--red); border-radius: 7px; }
+meter::-moz-meter-bar { background: var(--green); }
+meter:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--yellow); }
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--red); }
+
+#fines td > strong { color: var(--red); }
+#hotlines td a { font-family: var(--font-head); font-size: 2rem; font-weight: 800; text-decoration: none; color: var(--red); line-height: 1; }
+#hotlines td a:hover { color: var(--ink); }
+#hotlines td strong { font-weight: 800; }
+
+main figure { margin: 1.75rem 0; max-width: 760px; border-radius: 14px; overflow: hidden; background: var(--paper); box-shadow: 0 0 0 1px var(--line); }
+main figure svg { width: 100%; height: auto; }
+main figcaption { padding: 0.9rem 1.1rem; font-size: 0.95rem; color: var(--muted); }
+#hero figure { max-width: none; box-shadow: none; overflow: visible; }
+
+#gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+#gallery > h2, #gallery > h3, #gallery > p { grid-column: 1 / -1; }
+#gallery > h3 { margin-bottom: 0; }
+#gallery figure { display: flex; align-items: center; gap: 1.25rem; padding: 1.1rem; margin: 0; max-width: none; border-left: 8px solid var(--asphalt); }
+#gallery figure svg { width: 90px; height: 90px; flex: none; }
+#gallery figcaption { padding: 0; color: var(--ink); }
+#gallery figcaption strong { font-family: var(--font-head); font-size: 1.35rem; display: block; line-height: 1.1; margin-bottom: 0.2rem; }
+
+#markings { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem 1.5rem; background: var(--paper); }
+#markings > h2, #markings > p { grid-column: 1 / -1; }
+#markings figure { margin: 0; max-width: none; background: var(--asphalt); }
+#markings figcaption { background: var(--paper); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; color: var(--ink); }
+#markings figure svg { height: 80px; }
+
+details {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin: 0.75rem 0;
+    max-width: 820px;
+}
+details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem 3.2rem 1rem 1.25rem;
+    font-weight: 700;
+    position: relative;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after {
+    content: "+";
+    position: absolute; right: 1.1rem; top: 50%;
+    transform: translateY(-50%);
+    width: 1.8rem; height: 1.8rem;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 1.3rem; line-height: 1;
+}
+details[open] > summary::after { content: "\2212"; background: var(--ink); color: #fff; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > summary:hover { background: #f4f0e7; border-radius: 10px; }
+details > :not(summary) { padding-left: 1.25rem; padding-right: 1.25rem; }
+details > p { margin: 1rem 0; }
+details > figure { margin-left: 1.25rem; margin-right: 1.25rem; width: calc(100% - 2.5rem); }
+details > p:first-of-type { margin-top: 1rem; }
+details > p:last-child { margin-bottom: 1.1rem; }
+
+#bikes, #cars, #rickshaws, #vans, #buses { border-top: 14px solid var(--accent); }
+#bikes { --accent: var(--red);    --dash: var(--red);    background: var(--paper); }
+#cars { --accent: var(--blue);   --dash: var(--blue);   background: var(--concrete); }
+#rickshaws { --accent: var(--yellow); --dash: var(--yellow); background: var(--paper); }
+#vans { --accent: var(--green);  --dash: var(--green);  background: var(--concrete); }
+#buses { --accent: var(--orange); --dash: var(--orange); background: var(--paper); }
+
+#bikes > p:nth-of-type(1), #cars > p:nth-of-type(1), #rickshaws > p:nth-of-type(1),
+#vans > p:nth-of-type(1), #buses > p:nth-of-type(1) {
+    font-size: 1.2rem;
+    color: var(--ink);
+    border-left: 6px solid var(--accent);
+    padding-left: 1rem;
+}
+#cars figure, #vans figure { background: var(--paper); }
+
+#pre-ride-check { background: var(--paper); }
+fieldset { border: 0; padding: 0; min-width: 0; }
+#pre-ride-check legend { font-weight: 700; margin-bottom: 0.75rem; color: var(--muted); }
+#pre-ride-check fieldset p { margin: 0 0 0.6rem; max-width: 560px; }
+#pre-ride-check label {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--concrete);
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+#pre-ride-check label:hover { border-color: var(--blue); }
+#pre-ride-check label:has(input:checked) { border-color: var(--green); background: #e6f4ee; text-decoration: line-through; text-decoration-color: var(--green); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--green); width: 1.3rem; height: 1.3rem; flex: none; }
+
+#quiz-banner { background: var(--yellow); color: var(--ink); text-align: left; }
+#quiz-banner h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 14ch; }
+#quiz-banner h2::after { --dash: var(--ink); }
+#quiz-banner p { color: var(--ink) !important; font-size: 1.2rem; font-weight: 700; }
+#quiz-banner p:last-child { margin-top: 1.5rem; }
+#quiz-banner a {
+    display: inline-block;
+    background: var(--ink); color: #fff;
+    padding: 0.9rem 1.6rem;
+    border-radius: 6px;
+    text-decoration: none; font-weight: 700;
+}
+#quiz-banner a:hover { background: #000; color: var(--yellow); }
+
+#quiz form { display: grid; gap: 1.5rem; margin-top: 2rem; max-width: 820px; }
+#quiz fieldset { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; }
+#quiz legend {
+    float: left; width: 100%;
+    font-family: var(--font-head);
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+#quiz legend + p { clear: both; }
+#quiz fieldset p { margin: 0 0 0.6rem; }
+#quiz fieldset label {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.85rem 1.1rem;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fafbfc;
+}
+#quiz fieldset label:hover { border-color: var(--blue); }
+#quiz fieldset label:has(input:checked) { border-color: var(--blue); background: #e8f0fa; font-weight: 700; }
+#quiz details { background: transparent; border: 0; margin-top: 1rem; }
+#quiz details > summary {
+    display: inline-block; padding: 0.55rem 3rem 0.55rem 1.1rem;
+    background: var(--asphalt); color: #fff; border-radius: 6px;
+}
+#quiz details > summary:hover { background: var(--asphalt-2); }
+#quiz details[open] > summary { border-bottom: 0; border-radius: 6px; }
+#quiz details > summary::after { right: 0.7rem; width: 1.5rem; height: 1.5rem; font-size: 1.1rem; }
+#quiz details > p {
+    margin: 0.75rem 0 0; padding: 1rem 1.1rem;
+    border-left: 6px solid var(--green);
+    background: #e6f4ee; border-radius: 0 10px 10px 0;
+}
+#results { background: var(--paper); }
+#results dl { max-width: 720px; }
+
+label { font-weight: 700; }
+input[type="text"], input[type="tel"], select, textarea {
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+input[type="text"]:focus, input[type="tel"]:focus, select:focus, textarea:focus { border-color: var(--blue); outline: 3px solid rgba(20, 86, 160, 0.2); }
+button[type="submit"] {
+    font: inherit; font-weight: 700;
+    background: var(--yellow); color: var(--ink);
+    border: 2px solid var(--ink);
+    padding: 0.85rem 1.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button[type="submit"]:hover { background: var(--ink); color: var(--yellow); }
+
+#scenarios { background: var(--paper); }
+#scenarios details[open] { border-color: var(--red); }
+#crash { background: var(--concrete); }
+#hotlines { background: var(--paper); }
+
+body > footer { background: #082f24; color: #d9e1dc; padding: 3rem var(--gutter) 2rem; }
+body > footer > p:first-child { color: #fff; font-size: 1.1rem; }
+body > footer strong { font-family: var(--font-head); font-size: 1.6rem; color: var(--yellow); }
+body > footer nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 1.25rem 0; }
+body > footer a { color: #fff; }
+body > footer a:hover { color: var(--yellow); }
+body > footer small { color: #9aa79f; display: block; border-top: 1px solid var(--asphalt-2); padding-top: 1.25rem; }
+
+@media (max-width: 860px) {
+    header.home-header { flex-direction: column; align-items: flex-start; }
+    header.home-header nav ul { gap: 0.25rem 1.1rem; }
+    main > section { padding: 3rem var(--gutter); }
+
+    #hero { display: block; padding-bottom: 5rem; }
+    #hero figure { margin-top: 2.5rem; }
+
+    #pick-vehicle ul { grid-template-columns: 1fr; }
+    #pick-vehicle li, #pick-vehicle li:nth-child(n+4) { grid-column: auto; }
+
+    #gallery, #markings { grid-template-columns: 1fr; }
+
+    table { display: block; overflow-x: auto; }
+    main ol > li { padding-left: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    #pick-vehicle a { transition: none; }
+    #pick-vehicle a:hover { transform: none; }
+}
+
+
+        @media (max-width: 860px) {
+            header.home-header { position: static; }
+            header.home-header nav { border-radius: 22px; max-width: 100%; }
+            header.home-header nav ul { flex-wrap: wrap; gap: .25rem; }
+            header.home-header nav a { padding: .5rem .85rem; font-size: .84rem; }
+        }
+
+.ur { display: block; margin: .1rem 0 .35rem; font-family: "Noto Naskh Arabic", "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif; font-size: 1.2rem; line-height: 1.7; color: var(--blue); text-align: left; unicode-bidi: isolate; }
+#gallery figure.priority { border-left-color: var(--red); }
+#gallery figure.prohibit { border-left-color: var(--red); }
+#gallery figure.mandatory { border-left-color: var(--blue); }
+#gallery figure.warn { border-left-color: var(--yellow); }
+#gallery figure.info { border-left-color: var(--green); }
+#gallery > nav { grid-column: 1 / -1; }
+#gallery > nav ul { display: flex; flex-wrap: wrap; gap: .6rem; }
+#gallery > nav a { display: inline-block; padding: .45rem 1rem; border: 2px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); font-weight: 700; text-decoration: none; }
+#gallery > nav a:hover { border-color: var(--ink); background: var(--yellow); color: var(--ink); }
+
+.site-notice { height: 34px; display: grid; place-items: center; color: #1b2d27; background: var(--home-yellow); font-size: .65rem; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; text-align: center; padding: 0 .5rem; }
+@media (max-width: 680px) { .site-notice { height: 30px; font-size: .54rem; letter-spacing: .12em; } }
+
+/* typography matched to the homepage */
+body { font-size: 1rem; line-height: 1.7; letter-spacing: -0.005em; }
+h1, h2, h3 { font-weight: 800; line-height: 1; letter-spacing: -0.045em; }
+h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.05; }
+h3 { font-size: 1.7rem; letter-spacing: -0.025em; }
+#page-intro h1 { letter-spacing: -0.06em; line-height: .95; }
+#page-intro > p:first-child { display: inline-block; margin-bottom: 1.25rem; padding: .5rem .8rem; border: 1px solid rgba(242,189,63,.45); border-radius: 999px; color: var(--yellow); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; line-height: 1.2; }
+
+/* sliding nav pill */
+header.home-header nav ul { position: relative; }
+header.home-header nav a { position: relative; z-index: 1; }
+.nav-pill { position: absolute; top: 0; left: 0; z-index: 0; border-radius: 999px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.2); pointer-events: none; transition: transform .42s cubic-bezier(.2,.8,.2,1), width .42s cubic-bezier(.2,.8,.2,1), height .42s cubic-bezier(.2,.8,.2,1); will-change: transform, width; }
+header.home-header nav.has-pill a[aria-current="page"] { background: transparent; box-shadow: none; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+main { animation: pageIn .4s ease both; }
+@media (prefers-reduced-motion: reduce) { .nav-pill { transition: none; } main { animation: none; } }
+    </style>
+</head>
+<body>
+<div class="site-notice">Know the rule. Respect the road. Get home safe.</div>
+
+
+<header class="home-header">
+    <a href="index.html"><strong>RoadWise</strong> <span>Pakistan road guide</span></a>
+    <nav aria-label="Main">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signs-and-fines.html" aria-current="page">Signs, Rules &amp; Fines</a></li>
+            <li><a href="vehicle-guides.html">Ride Guides</a></li>
+            <li><a href="emergency.html">Emergency</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section id="page-intro">
+        <p>Signs, markings and the cost of ignoring them</p>
+        <h1>Read the road before you ride it.</h1>
+        <p>You do not need to memorise a hundred signs. Learn the shape and colour language and you can decode almost any sign you meet.</p>
+        <p><a href="#shapes">Shape language</a> | <a href="#gallery">Sign gallery</a> | <a href="#markings">Road paint</a> | <a href="#fines">Fines</a> | <a href="#rules">Rules in a nutshell</a></p>
+    </section>
+
+    <!-- SHAPE LANGUAGE: the "key" to all signs -->
+    <section id="shapes">
+        <h2>Decode any sign in two seconds</h2>
+        <p>Look at the shape first and the colour second. Together they tell you the type of message before you read a word.</p>
+
+        <table>
+            <caption>Shape and colour cheat sheet</caption>
+            <thead>
+                <tr><th scope="col">What you see</th><th scope="col">Shape</th><th scope="col">It means</th><th scope="col">Your response</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#D32F2F"/></svg></td>
+                    <th scope="row">Red octagon</th><td>Stop. Only one sign uses this shape.</td><td>Complete stop behind the line</td>
+                </tr>
+                <tr>
+                    <td><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><polygon points="5,10 95,10 50,92" fill="#fff" stroke="#D32F2F" stroke-width="10"/></svg></td>
+                    <th scope="row">Inverted triangle</th><td>Give way</td><td>Slow down, let others go first</td>
+                </tr>
+                <tr>
+                    <td><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#D32F2F" stroke-width="10"/></svg></td>
+                    <th scope="row">Red-ringed circle</th><td>Prohibition: something is forbidden</td><td>Obey. This is the law</td>
+                </tr>
+                <tr>
+                    <td><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="45" fill="#1565C0"/></svg></td>
+                    <th scope="row">Solid blue circle</th><td>Mandatory: you must do this</td><td>Follow the direction or rule shown</td>
+                </tr>
+                <tr>
+                    <td><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/></svg></td>
+                    <th scope="row">Red-bordered triangle</th><td>Warning: hazard ahead</td><td>Slow down before you reach it</td>
+                </tr>
+                <tr>
+                    <td><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="22" width="84" height="56" rx="6" fill="#1456A0"/></svg></td>
+                    <th scope="row">Blue square or rectangle</th><td>Information and direction</td><td>Use it to navigate. No action needed</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SIGN GALLERY -->
+    <section id="gallery">
+        <h2>The signs you will meet on Pakistani roads</h2>
+        <p>Pakistan's signs follow the British system, set out in the national Manual of Signs, Signals and Markings. Most carry text in both English and Urdu. Artwork varies a little between cities, and many signs are faded, damaged or missing, so ride as if a sign could be absent.</p>
+
+        <nav aria-label="Jump to a sign group">
+            <ul>
+                <li><a href="#sg-priority">Priority signs</a></li>
+                <li><a href="#sg-prohibit">Prohibitions</a></li>
+                <li><a href="#sg-mandatory">Mandatory signs</a></li>
+                <li><a href="#sg-warn">Warnings</a></li>
+                <li><a href="#sg-info">Information signs</a></li>
+            </ul>
+        </nav>
+
+        <h3 id="sg-priority">Who goes first: priority signs</h3>
+        <p>Two signs decide who has right of way. Both are common at junctions in every city.</p>
+
+        <figure class="priority">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Stop sign"><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#D32F2F"/><text x="50" y="59" font-size="23" font-weight="bold" fill="#fff" text-anchor="middle">STOP</text></svg>
+            <figcaption><strong>Stop</strong> <span class="ur" lang="ur" dir="rtl">رکیں</span>Come to a full stop behind the line, even on an empty road. Rolling through is a common cause of junction crashes.</figcaption>
+        </figure>
+
+        <figure class="priority">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Give way sign"><polygon points="6,12 94,12 50,90" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/></svg>
+            <figcaption><strong>Give way</strong> <span class="ur" lang="ur" dir="rtl">راستہ دیں</span>Slow down and let traffic on the main road go first. Be ready to stop.</figcaption>
+        </figure>
+
+
+        <h3 id="sg-prohibit">Never do this: prohibitions</h3>
+        <p>A red ring means it is forbidden. Breaking one is a punishable offence.</p>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Speed limit 50"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#D32F2F" stroke-width="9"/><text x="50" y="62" font-size="34" font-weight="bold" fill="#000" text-anchor="middle">50</text></svg>
+            <figcaption><strong>Speed limit 50 km/h</strong> <span class="ur" lang="ur" dir="rtl">رفتار کی حد</span>A ceiling, not a target. Drop lower in rain, crowds, and near schools and markets.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No overtaking"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#D32F2F" stroke-width="9"/><rect x="24" y="42" width="24" height="16" rx="4" fill="#D32F2F"/><rect x="52" y="42" width="24" height="16" rx="4" fill="#000"/></svg>
+            <figcaption><strong>No overtaking</strong> <span class="ur" lang="ur" dir="rtl">اوور ٹیکنگ منع ہے</span>Stay behind the vehicle ahead. Used on blind bends, hill crests and narrow roads.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No entry"><circle cx="50" cy="50" r="45" fill="#D32F2F"/><rect x="20" y="42" width="60" height="16" fill="#fff"/></svg>
+            <figcaption><strong>No entry</strong> <span class="ur" lang="ur" dir="rtl">داخلہ ممنوع</span>You are facing a one-way road from the wrong end. Wrong-way riding is a fined offence and a common cause of head-on crashes.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No parking"><circle cx="50" cy="50" r="42" fill="#1456A0" stroke="#D32F2F" stroke-width="9"/><text x="50" y="66" font-size="46" font-weight="bold" fill="#fff" text-anchor="middle">P</text><line x1="24" y1="24" x2="76" y2="76" stroke="#D32F2F" stroke-width="7"/></svg>
+            <figcaption><strong>No parking</strong> <span class="ur" lang="ur" dir="rtl">پارکنگ ممنوع</span>Do not leave your vehicle here. Wrongly parked vehicles can be fined or towed in many cities.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No stopping"><circle cx="50" cy="50" r="42" fill="#1456A0" stroke="#D32F2F" stroke-width="9"/><line x1="28" y1="28" x2="72" y2="72" stroke="#D32F2F" stroke-width="7"/><line x1="72" y1="28" x2="28" y2="72" stroke="#D32F2F" stroke-width="7"/></svg>
+            <figcaption><strong>No stopping</strong> <span class="ur" lang="ur" dir="rtl">رکنا منع ہے</span>Do not stop at all, even briefly, except in an emergency. Used on flyovers, busy roads and near junctions.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No U-turn"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#D32F2F" stroke-width="9"/><path d="M40 70 L40 44 Q40 30 50 30 Q60 30 60 44 L60 52" stroke="#000" stroke-width="7" fill="none"/><polygon points="52,52 68,52 60,64" fill="#000"/><line x1="24" y1="24" x2="76" y2="76" stroke="#D32F2F" stroke-width="7"/></svg>
+            <figcaption><strong>No U-turn</strong> <span class="ur" lang="ur" dir="rtl">یو ٹرن ممنوع</span>Drive on to the next permitted turn. Sudden U-turns are a major danger to bikes behind you.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No horn"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#D32F2F" stroke-width="9"/><polygon points="30,44 42,44 58,32 58,68 42,56 30,56" fill="#000"/><path d="M65 42 Q72 50 65 58" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/><line x1="24" y1="24" x2="76" y2="76" stroke="#D32F2F" stroke-width="7"/></svg>
+            <figcaption><strong>No horn</strong> <span class="ur" lang="ur" dir="rtl">ہارن بجانا منع ہے</span>Common near hospitals and schools. Keep the horn quiet in silence zones.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No right turn"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#D32F2F" stroke-width="9"/><path d="M40 72 L40 52 Q40 42 50 42 L60 42" stroke="#000" stroke-width="7" fill="none"/><polygon points="58,32 72,42 58,52" fill="#000"/><line x1="24" y1="24" x2="76" y2="76" stroke="#D32F2F" stroke-width="7"/></svg>
+            <figcaption><strong>No right turn</strong> <span class="ur" lang="ur" dir="rtl">دائیں مڑنا منع ہے</span>Go on to the next permitted turn. Right turns cross oncoming traffic, so busy junctions often ban them.</figcaption>
+        </figure>
+
+        <figure class="prohibit">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="No motorcycles"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#D32F2F" stroke-width="9"/><g stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"><circle cx="34" cy="62" r="8"/><circle cx="68" cy="62" r="8"/><path d="M34 62 L46 46 L58 46 L68 62 M46 46 L52 62 M56 46 L52 38 L60 38"/></g></svg>
+            <figcaption><strong>No motorcycles</strong> <span class="ur" lang="ur" dir="rtl">موٹر سائیکل ممنوع</span>Motorcycles are not allowed on motorways, and some cities bar them from certain roads. Use the service road or an alternative route.</figcaption>
+        </figure>
+
+
+        <h3 id="sg-mandatory">You must do this: mandatory signs</h3>
+        <p>A solid blue disc is an order. White symbol on blue means follow it.</p>
+
+        <figure class="mandatory">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Keep left"><circle cx="50" cy="50" r="45" fill="#1456A0"/><g transform="rotate(30 50 50)"><path d="M50 22 L50 60" stroke="#fff" stroke-width="10"/><polygon points="32,56 68,56 50,80" fill="#fff"/></g></svg>
+            <figcaption><strong>Keep left</strong> <span class="ur" lang="ur" dir="rtl">بائیں جانب رہیں</span>Pass on the left of the sign. Used at islands and dividers because we drive on the left.</figcaption>
+        </figure>
+
+        <figure class="mandatory">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Turn left"><circle cx="50" cy="50" r="45" fill="#1456A0"/><path d="M74 50 H42" stroke="#fff" stroke-width="10"/><polygon points="46,32 46,68 22,50" fill="#fff"/></svg>
+            <figcaption><strong>Turn left</strong> <span class="ur" lang="ur" dir="rtl">بائیں مڑیں</span>You must turn left. Going straight or turning right is not allowed.</figcaption>
+        </figure>
+
+        <figure class="mandatory">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Roundabout"><circle cx="50" cy="50" r="45" fill="#1456A0"/><circle cx="50" cy="50" r="20" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="30 11.89"/><g transform="translate(51.4 69.9) rotate(175.9)"><polygon points="-2,-9 -2,9 12,0" fill="#fff"/></g><g transform="translate(32.0 41.3) rotate(295.9)"><polygon points="-2,-9 -2,9 12,0" fill="#fff"/></g><g transform="translate(66.6 38.8) rotate(415.9)"><polygon points="-2,-9 -2,9 12,0" fill="#fff"/></g></svg>
+            <figcaption><strong>Roundabout</strong> <span class="ur" lang="ur" dir="rtl">گول چکر</span>Enter clockwise and give way to traffic coming from your right. Signal before you exit.</figcaption>
+        </figure>
+
+
+        <h3 id="sg-warn">Slow down, something is ahead: warnings</h3>
+        <p>A red-bordered triangle warns of a hazard. Slow down before you reach it.</p>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Pedestrian crossing"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><circle cx="50" cy="40" r="6" fill="#000"/><path d="M50 48 L50 64 M41 55 L59 55 M44 78 L50 64 L56 78" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/></svg>
+            <figcaption><strong>Pedestrian crossing</strong> <span class="ur" lang="ur" dir="rtl">پیدل چلنے والوں کا راستہ</span>Slow down and cover your brakes. Stop for people on the zebra.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="School ahead"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><circle cx="42" cy="46" r="5" fill="#000"/><circle cx="60" cy="49" r="4" fill="#000"/><path d="M42 52 L42 72 M60 54 L60 72 M36 61 L48 61 M54 63 L66 63" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/></svg>
+            <figcaption><strong>School ahead</strong> <span class="ur" lang="ur" dir="rtl">اسکول</span>Children run into roads without looking. Slow to walking pace at school start and finish times.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Speed breaker ahead"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><path d="M24 76 Q50 40 76 76 Z" fill="#000"/></svg>
+            <figcaption><strong>Speed breaker ahead</strong> <span class="ur" lang="ur" dir="rtl">اسپیڈ بریکر</span>Slow to walking pace. Many are unpainted and hard to see at night, and hitting one fast can throw a rider.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Uneven road"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><path d="M22 76 Q34 52 46 76 Z M52 76 Q64 52 76 76 Z" fill="#000"/></svg>
+            <figcaption><strong>Uneven road</strong> <span class="ur" lang="ur" dir="rtl">ناہموار سڑک</span>Expect bumps or a broken surface. Reduce speed and keep a firm grip on the bars.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Slippery road"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><rect x="36" y="50" width="28" height="12" rx="3" fill="#000"/><circle cx="42" cy="64" r="4" fill="#000"/><circle cx="58" cy="64" r="4" fill="#000"/><path d="M30 77 q5 -6 10 0 t10 0 t10 0" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>
+            <figcaption><strong>Slippery road</strong> <span class="ur" lang="ur" dir="rtl">پھسلن والی سڑک</span>Brake early and gently. Roads are worst in the first rain after a dry spell, and after oil spills.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Road narrows"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><path d="M33 80 Q42 58 33 36 M67 80 Q58 58 67 36" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/></svg>
+            <figcaption><strong>Road narrows</strong> <span class="ur" lang="ur" dir="rtl">سڑک تنگ ہوتی ہے</span>Be ready to give way. Do not overtake, and watch for oncoming vehicles.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Sharp curve to the right"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><path d="M38 80 L38 58 Q38 46 54 46 L62 46" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><polygon points="60,38 72,46 60,54" fill="#000"/></svg>
+            <figcaption><strong>Sharp curve ahead</strong> <span class="ur" lang="ur" dir="rtl">تیز موڑ</span>Brake before the bend, not in it. Hard braking while leaning is how bikes slide out.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Traffic signals ahead"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><rect x="40" y="32" width="20" height="46" rx="5" fill="#000"/><circle cx="50" cy="42" r="4.5" fill="#D32F2F"/><circle cx="50" cy="55" r="4.5" fill="#FFC20E"/><circle cx="50" cy="68" r="4.5" fill="#12805C"/></svg>
+            <figcaption><strong>Traffic signals ahead</strong> <span class="ur" lang="ur" dir="rtl">آگے ٹریفک سگنل</span>Be ready to stop. Do not speed up to beat the light.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Railway crossing"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><path d="M32 42 L68 76 M68 42 L32 76" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/></svg>
+            <figcaption><strong>Railway crossing</strong> <span class="ur" lang="ur" dir="rtl">ریلوے کراسنگ</span>Slow down and look both ways. Some crossings have no gate, so never rely on a barrier being there. Never cross as a train approaches.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Animals crossing"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><rect x="30" y="52" width="30" height="14" rx="6" fill="#000"/><circle cx="66" cy="50" r="6" fill="#000"/><path d="M34 66 L34 78 M42 66 L42 78 M52 66 L52 78 M58 66 L58 78" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/></svg>
+            <figcaption><strong>Animals crossing</strong> <span class="ur" lang="ur" dir="rtl">جانور</span>Cattle, buffalo, goats and donkey carts share many roads. Slow down and give them space.</figcaption>
+        </figure>
+
+        <figure class="warn">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Steep descent"><polygon points="50,7 94,88 6,88" fill="#fff" stroke="#D32F2F" stroke-width="9" stroke-linejoin="round"/><polygon points="24,46 76,74 24,74" fill="#000"/><text x="62" y="58" font-size="14" font-weight="bold" fill="#000" text-anchor="middle">10%</text></svg>
+            <figcaption><strong>Steep descent</strong> <span class="ur" lang="ur" dir="rtl">خطرناک ڈھلوان</span>Use a low gear to hold your speed on the way down. Do not coast in neutral and do not ride the brakes.</figcaption>
+        </figure>
+
+
+        <h3 id="sg-info">Good to know: information signs</h3>
+        <p>Blue squares and rectangles guide you. No action is required, but they tell you what is nearby.</p>
+
+        <figure class="info">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Hospital"><rect x="8" y="8" width="84" height="84" rx="10" fill="#1456A0"/><text x="50" y="68" font-size="52" font-weight="bold" fill="#fff" text-anchor="middle">H</text></svg>
+            <figcaption><strong>Hospital</strong> <span class="ur" lang="ur" dir="rtl">ہسپتال</span>A hospital is nearby. Keep noise down and make way for ambulances.</figcaption>
+        </figure>
+
+        <figure class="info">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Parking"><rect x="8" y="8" width="84" height="84" rx="10" fill="#1456A0"/><text x="50" y="68" font-size="52" font-weight="bold" fill="#fff" text-anchor="middle">P</text></svg>
+            <figcaption><strong>Parking</strong> <span class="ur" lang="ur" dir="rtl">پارکنگ</span>Parking is allowed here. Check for time limits and park inside the marked bay.</figcaption>
+        </figure>
+
+        <figure class="info">
+            <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="One-way street"><rect x="6" y="28" width="88" height="44" rx="8" fill="#1456A0"/><path d="M20 50 H70" stroke="#fff" stroke-width="8"/><polygon points="66,36 66,64 84,50" fill="#fff"/></svg>
+            <figcaption><strong>One-way street</strong> <span class="ur" lang="ur" dir="rtl">یک طرفہ</span>Traffic flows only in the direction of the arrow. Riding against it is a wrong-way offence.</figcaption>
+        </figure>
+
+    </section>
+
+    <!-- ROAD MARKINGS shown as actual road strips -->
+    <section id="markings">
+        <h2>The paint on the road is law too</h2>
+        <p>Each strip below shows the line exactly as it appears on the road, with what you may do.</p>
+
+        <figure>
+            <svg width="100%" height="70" viewBox="0 0 400 70" role="img" aria-label="Broken white line">
+                <rect width="400" height="70" fill="#333"/>
+                <line x1="10" y1="35" x2="390" y2="35" stroke="#fff" stroke-width="5" stroke-dasharray="30 20"/>
+            </svg>
+            <figcaption><strong>Broken white line.</strong> You may change lanes or overtake when it is clear. Signal first.</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="100%" height="70" viewBox="0 0 400 70" role="img" aria-label="Solid white line">
+                <rect width="400" height="70" fill="#333"/>
+                <line x1="10" y1="35" x2="390" y2="35" stroke="#fff" stroke-width="5"/>
+            </svg>
+            <figcaption><strong>Solid white line.</strong> Stay in your lane. Seen near junctions, tunnels and bends.</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="100%" height="70" viewBox="0 0 400 70" role="img" aria-label="Double solid yellow line">
+                <rect width="400" height="70" fill="#333"/>
+                <line x1="10" y1="31" x2="390" y2="31" stroke="#FFC107" stroke-width="4"/>
+                <line x1="10" y1="40" x2="390" y2="40" stroke="#FFC107" stroke-width="4"/>
+            </svg>
+            <figcaption><strong>Double solid yellow.</strong> A wall between opposite directions. Never cross it to overtake.</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="100%" height="70" viewBox="0 0 400 70" role="img" aria-label="Zebra crossing">
+                <rect width="400" height="70" fill="#333"/>
+                <g fill="#fff">
+                    <rect x="60" y="5" width="22" height="60"/><rect x="100" y="5" width="22" height="60"/>
+                    <rect x="140" y="5" width="22" height="60"/><rect x="180" y="5" width="22" height="60"/>
+                    <rect x="220" y="5" width="22" height="60"/><rect x="260" y="5" width="22" height="60"/>
+                    <rect x="300" y="5" width="22" height="60"/>
+                </g>
+            </svg>
+            <figcaption><strong>Zebra crossing.</strong> Pedestrians have priority here. Stop before the stripes, never on them.</figcaption>
+        </figure>
+    </section>
+
+    <!-- FINES -->
+    <section id="fines">
+        <h2>What breaking the rules costs</h2>
+        <p>Fines are only the visible price. Demerit points can lead to licence suspension.</p>
+
+        <table>
+            <caption>Common offences, fines and points (indicative values)</caption>
+            <thead>
+                <tr><th scope="col">Offence</th><th scope="col">What counts</th><th scope="col">Risk</th><th scope="col">Fine</th><th scope="col">Points</th></tr>
+            </thead>
+            <tbody>
+                <tr><th scope="row">Red light</th><td>Crossing a stop line on red</td><td><strong>Critical</strong></td><td>Motorcycles: PKR 2,000 <br> Private Cars: PKR 3,000 – 5,000</td><td>4</td></tr>
+                <tr><th scope="row">Wrong side</th><td>Driving against traffic or one-way violation</td><td><strong>Critical</strong></td><td>Motorcycles: PKR 2,000 <br> Private Cars: PKR 3,000 – 5,000</td><td>4</td></tr>
+                <tr><th scope="row">Speeding</th><td>More than 20 km/h over the limit</td><td><strong>Critical</strong></td><td>Motorcycles: PKR 1,500 <br> Cars/LTVs: PKR 2,500 – 5,000</td><td>3</td></tr>
+                <tr><th scope="row">No helmet</th><td>Rider or pillion without a helmet</td><td><strong>High</strong></td><td> Motorcycles: PKR 2,000 </td><td>2</td></tr>
+                <tr><th scope="row">Phone use</th><td>Handling a phone while moving</td><td><strong>High</strong></td><td>Motorcycles: PKR 2,000 <br> Cars/LTVs: PKR 2,000 – 5,000</td><td>2</td></tr>
+                <tr><th scope="row">No licence</th><td>Driving without a valid licence</td><td><strong>Critical</strong></td><td>Motorcycles/Car/LTV: PKR 2000 - 5,000 and vehicle impounded</td><td>5</td></tr>
+            </tbody>
+        </table>
+        <p><small>Fines and points differ by province and change over time. Treat these figures as a guide and check the current schedule with your provincial traffic police.</small></p>
+    </section>
+
+    <!-- RULES, as question and answer reveals rather than bullets -->
+    <section id="rules">
+        <h2>Rules in a nutshell</h2>
+        <p>Open any question for the short answer.</p>
+
+        <details name="rules">
+            <summary>Who has right of way at a junction without signals?</summary>
+            <p>The vehicle already on the main road, and traffic from your right when both arrive together at a roundabout. When unsure, slow down and let the other go. Being right is no use if you are hurt.</p>
+        </details>
+        <details name="rules">
+            <summary>How far behind the vehicle ahead should I stay?</summary>
+            <p>At least three seconds. Watch the car ahead pass a fixed marker, then count. If you pass the marker before three, drop back. Make it six seconds in rain.</p>
+        </details>
+        <details name="rules">
+            <summary>On which side do I overtake?</summary>
+            <p>Pakistan drives on the left, so you overtake on the right. Only do so on a broken line with a clear view, and return to your lane when you can see the vehicle's headlights in your mirror.</p>
+        </details>
+        <details name="rules">
+            <summary>When must I use my lights?</summary>
+            <p>From dusk to dawn, in fog, heavy rain or dust. Low beam only when other traffic is close, and dip for oncoming vehicles.</p>
+        </details>
+        <details name="rules">
+            <summary>Do I need to stop for an ambulance?</summary>
+            <p>Yes. Pull to the left, slow or stop, and let it pass. Never follow it closely to clear traffic for yourself.</p>
+        </details>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>RoadWise</strong>: clear guidance for safer roads.</p>
+    <nav aria-label="Footer">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Take the quiz</a></li>
+            <li><a href="emergency.html#hotlines">Emergency numbers</a></li>
+        </ul>
+    </nav>
+    <p><small>&copy; 2026 RoadWise. Educational guidance only. Always follow local traffic law.</small></p>
+</footer>
+
+<script>
+(function () {
+    var nav = document.querySelector('header.home-header nav');
+    if (!nav) return;
+    var ul = nav.querySelector('ul');
+    var links = [].slice.call(ul.querySelectorAll('a'));
+    var pill = document.createElement('span');
+    pill.className = 'nav-pill'; pill.setAttribute('aria-hidden', 'true');
+    ul.insertBefore(pill, ul.firstChild);
+    var cur = ul.querySelector('a[aria-current="page"]');
+    function place(a, animate) {
+        var r = a.getBoundingClientRect(), u = ul.getBoundingClientRect();
+        pill.style.transition = animate ? '' : 'none';
+        pill.style.width = r.width + 'px'; pill.style.height = r.height + 'px';
+        pill.style.transform = 'translate(' + (r.left - u.left) + 'px,' + (r.top - u.top) + 'px)';
+        if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+    }
+    function fileOf(href) { return (new URL(href, location.href).pathname.split('/').pop() || 'index.html'); }
+    function sync() {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        links.forEach(function (l) { if (fileOf(l.href) === here) { l.setAttribute('aria-current', 'page'); cur = l; } else { l.removeAttribute('aria-current'); } });
+        if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    }
+    if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    window.addEventListener('resize', function () { if (cur) place(cur, false); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (cur) place(cur, false); });
+    links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button || a.target) return;
+            if (fileOf(a.href) === (location.pathname.split('/').pop() || 'index.html')) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            e.preventDefault();
+            links.forEach(function (l) { l.removeAttribute('aria-current'); });
+            a.setAttribute('aria-current', 'page'); cur = a; place(a, true);
+            setTimeout(function () { location.href = a.href; }, 360);
+        });
+    });
+})();
+</script>
+</body>
+</html>

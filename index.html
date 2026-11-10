@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoadWise | Traffic Rules, Road Signs and Ride Safety</title>
+    <meta name="description" content="Learn traffic rules, road signs, fines and safe riding for bikes, cars, rickshaws, vans and buses.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b3d2f'/%3E%3Cpath d='M30 82 L44 18 H56 L70 82 H60 L50 38 L40 82Z' fill='%23f2bd3f'/%3E%3C/svg%3E">
+    <style>
+
+        :root {
+            --asphalt: #0b3d2f;
+            --ink: #0c261d;
+            --line: #d5d0c3;
+            --muted: #5d6c66;
+            --yellow: #f5c344;
+            --red: #b43b3b;
+            --blue: #175f59;
+
+            --font-head: "Manrope", system-ui, sans-serif;
+            --font-body: "Manrope", system-ui, sans-serif;
+
+            --page: 1180px;
+            --gutter: max(1.25rem, calc((100% - var(--page)) / 2));
+
+            --home-green: #0b3b2e;
+            --home-green-2: #124c3b;
+            --home-cream: #f5f1e8;
+            --home-paper: #fbf9f4;
+            --home-yellow: #f2bd3f;
+            --home-line: #d8d1c3;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        * { margin: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+
+        body {
+            background: var(--home-cream);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            letter-spacing: -0.005em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img, svg { max-width: 100%; display: block; }
+        ul { padding: 0; list-style: none; }
+        a { color: var(--blue); text-underline-offset: 3px; }
+        a:hover { color: var(--red); }
+        :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 4px; }
+        small { font-size: 0.85rem; color: var(--muted); }
+
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.045em;
+        }
+        h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.05; margin-bottom: 1rem; }
+        h3 { font-size: 1.7rem; letter-spacing: -0.025em; margin: 2.25rem 0 0.75rem; }
+
+.site-notice {
+    height: 34px;
+    display: grid;
+    place-items: center;
+    color: #1b2d27;
+    background: var(--home-yellow);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .19em;
+    text-transform: uppercase;
+}
+
+header.home-header {
+    min-height: 70px;
+    background: var(--home-green);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem var(--gutter);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 3px solid var(--home-yellow); 
+}
+
+header.home-header > a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+header.home-header > a strong { font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; letter-spacing: -.04em; }
+header.home-header > a span { font-size: 0.68rem; color: var(--yellow); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+
+header.home-header nav {
+    background: rgba(18, 76, 59, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 0.35rem 0.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+header.home-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+header.home-header nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header.home-header nav a[aria-current="page"] {
+    background: #ffffff;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 800;
+}
+
+header.home-header nav a:not([aria-current="page"]):hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+        main > section { padding: 7rem var(--gutter); position: relative; }
+
+        .eyebrow {
+            margin-bottom: 1.25rem;
+            color: var(--home-green-2);
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .section-heading.centered { max-width: 780px; margin: 0 auto; text-align: center; }
+        .section-heading.centered > p { margin-inline: auto; color: var(--muted); }
+
+        .home-page #hero.reference-hero {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 554px;
+            padding: 0;
+            background: var(--home-green);
+        }
+
+        .home-page #hero.reference-hero .hero-copy {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: 554px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 0 32% 30px var(--gutter);
+        }
+
+        .home-page #hero.reference-hero .hero-copy .eyebrow {
+            align-self: flex-start;
+            margin: 3rem 0 2rem;
+            padding: .5rem .8rem;
+            color: var(--home-yellow);
+            border: 1px solid rgba(242,189,63,.45);
+            border-radius: 999px;
+        }
+
+        .home-page #hero.reference-hero .hero-copy h1 {
+            position: relative;
+            z-index: 2;
+            max-width: 8ch;
+            margin: 0 0 1.5rem;
+            color: #fff;
+            font-size: clamp(3.7rem, 6vw, 6.6rem);
+            line-height: .92;
+            letter-spacing: -.08em;
+        }
+        .home-page #hero.reference-hero .hero-copy h1 span { display: block; color: var(--home-yellow); }
+
+        .home-page .hero-summary {
+            position: relative;
+            z-index: 2;
+            max-width: 540px;
+            color: rgba(255,255,255,.7);
+            font-size: 1.08rem;
+        }
+
+        .home-page .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            max-width: 600px;
+            margin: auto 0 0;
+            border-top: 1px solid rgba(255,255,255,.18);
+        }
+        .home-page .hero-metrics div { padding-top: 1rem; }
+        .home-page .hero-metrics dt { padding: 0; color: #fff; font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; }
+        .home-page .hero-metrics dd { padding: 0; margin: 0; color: rgba(255,255,255,.55); font-size: .72rem; }
+
+        .hero-media[hidden] { display: none; }
+        .hero-media {
+            margin: 0;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .home-page #hero.reference-hero .hero-media {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            right: 0;
+            left: auto;
+            bottom: 0;
+            width: 56%;
+            min-height: 554px;
+        }
+
+        .home-page #hero.reference-hero .hero-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to left, rgba(11,59,46,.08) 0%, rgba(11,59,46,0) 40%, var(--home-green) 100%),
+                linear-gradient(to top, rgba(4,28,21,.22), transparent 42%);
+        }
+
+        .home-page #hero.reference-hero .hero-media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 554px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .home-page #hero.reference-hero .hero-media figcaption { display: none; }
+
+        #pick-vehicle { background: var(--home-cream); }
+        #pick-vehicle h2 { color: var(--ink); }
+        #pick-vehicle .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 3.5rem;
+            border: 1px solid var(--home-line);
+            border-radius: 26px;
+            overflow: hidden;
+        }
+#pick-vehicle .travel-grid a {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 1.8rem;
+            color: var(--ink);
+            background: rgba(255,255,255,.35);
+            border-right: 1px solid var(--home-line);
+            border-radius: 0;
+            text-decoration: none;
+            transition: background .2s ease;
+        }
+        #pick-vehicle .travel-grid li:last-child a { border-right: 0; }
+        .mode-key {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 3.2rem;
+            border: 1px solid var(--home-line);
+            border-radius: 50%;
+            background: #efebe2;
+            font-size: .78rem;
+            font-weight: 800;
+        }
+        #pick-vehicle .travel-grid strong { font-size: 1.2rem; letter-spacing: -.03em; }
+        #pick-vehicle .travel-grid small { max-width: 22ch; margin-top: .65rem; color: var(--muted); font-size: .88rem; }
+        .card-arrow {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            margin-top: auto;
+            border: 1px solid var(--home-line);
+            border-radius: 50%;
+        }
+        #pick-vehicle .travel-grid a:hover { background: var(--home-paper); }
+        #pick-vehicle .travel-grid a:hover .card-arrow { color: #fff; background: var(--home-green); border-color: var(--home-green); }
+
+        .learning-path { background: var(--home-paper) !important; }
+        .split-heading { display: grid; grid-template-columns: 1.4fr .6fr; gap: 4rem; align-items: end; }
+        .split-heading h2 { max-width: 15ch; }
+        .split-heading > p { max-width: 42ch; margin-bottom: .5rem; color: var(--muted); }
+        .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 4rem; }
+        .module-card {
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            color: var(--ink);
+            background: var(--home-cream);
+            border: 1px solid var(--home-line);
+            border-radius: 16px;
+            text-decoration: none;
+            transition: background .2s ease, transform .2s ease;
+        }
+        .module-card > span { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+        .module-card h3 { max-width: 10ch; margin: 4.5rem 0 .9rem; font-size: 1.8rem; }
+        .module-card p { color: var(--muted); }
+        .module-card > strong { margin-top: auto; font-size: .82rem; }
+        .module-card > strong span { float: right; }
+        .module-card:hover { color: #fff; background: var(--home-green); transform: translateY(-3px); }
+        .module-card:hover p, .module-card:hover > span { color: rgba(255,255,255,.68); }
+
+        .sign-preview {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: clamp(3rem, 8vw, 8rem);
+            align-items: center;
+            color: #fff;
+            background: var(--home-green) !important;
+        }
+        .sign-intro h2 { max-width: 12ch; }
+        .sign-intro > p:not(.eyebrow) { color: rgba(255,255,255,.62); }
+        .sign-intro .eyebrow { color: var(--home-yellow); }
+        .sign-intro > a { display: inline-block; margin-top: 1.5rem; color: #fff; font-size: .84rem; font-weight: 800; text-decoration: none; }
+        .sign-intro > a span { margin-left: .5rem; }
+        .sign-samples { display: grid; gap: 1px; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.2); border-radius: 18px; overflow: hidden; }
+        .sign-samples article { display: grid; grid-template-columns: 84px 1fr; gap: 1.2rem; align-items: center; padding: 1.25rem; background: #164b3c; }
+        .sign-samples svg { width: 68px; height: 68px; }
+        .sign-samples strong, .sign-samples span { display: block; }
+        .sign-samples span { margin-top: .2rem; color: rgba(255,255,255,.55); font-size: .72rem; }
+
+        .decision-practice {
+            display: grid;
+            grid-template-columns: 1.35fr .65fr;
+            gap: 1rem;
+            background: var(--home-cream) !important;
+        }
+        .scenario-card, .decision-practice aside { padding: clamp(2rem, 4vw, 4rem); border: 1px solid var(--home-line); border-radius: 18px; }
+        .scenario-card { background: var(--home-paper); }
+        .scenario-number { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+        .scenario-card h2 { max-width: 18ch; margin: 3.5rem 0 2.5rem; font-size: clamp(2rem, 4vw, 3.3rem); }
+
+        details {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            margin: 0;
+        }
+        details > summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 1rem 3.2rem 1rem 1.25rem;
+            font-weight: 700;
+            position: relative;
+        }
+        details > summary::-webkit-details-marker { display: none; }
+        details > summary::after {
+            content: "+";
+            position: absolute; right: 1.1rem; top: 50%;
+            transform: translateY(-50%);
+            width: 1.8rem; height: 1.8rem;
+            display: grid; place-items: center;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            color: var(--ink);
+            font-size: 1.3rem; line-height: 1;
+        }
+        details[open] > summary::after { content: "\2212"; background: var(--asphalt); color: #fff; }
+        details[open] > summary { border-bottom: 1px solid var(--line); }
+        details > p { padding: 1rem 1.25rem; margin: 0; }
+
+        .decision-practice aside { color: #fff; background: var(--home-green); }
+        .decision-practice aside .eyebrow { color: var(--home-yellow); }
+        .decision-practice aside h3 { max-width: 13ch; margin: 0 0 3rem; font-size: 1.7rem; }
+        .decision-practice aside li { display: grid; gap: .25rem; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,.16); }
+        .decision-practice aside li span { color: rgba(255,255,255,.62); font-size: .82rem; }
+
+        #quiz-banner {
+            padding-top: 7rem;
+            padding-bottom: 7rem;
+            text-align: center;
+            background: var(--home-yellow) !important;
+            color: var(--ink);
+        }
+        #quiz-banner .eyebrow { color: var(--ink); }
+        #quiz-banner h2 { max-width: none; font-size: clamp(2.4rem, 6vw, 4.2rem); }
+        #quiz-banner > p { margin-inline: auto; color: var(--ink); font-size: 1.2rem; font-weight: 700; }
+        #quiz-banner > a {
+            display: inline-block;
+            margin-top: 1.6rem;
+            padding: .9rem 1.4rem;
+            color: #fff;
+            background: var(--ink);
+            border-radius: 999px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        #quiz-banner a:hover { background: #000; color: var(--yellow); }
+
+        footer {
+            background: #082f24;
+            color: #cfd6dd;
+            padding: 3rem var(--gutter) 2rem;
+        }
+        footer > p:first-child { color: #fff; font-size: 1.1rem; }
+        footer strong { font-family: var(--font-head); font-size: 1.6rem; color: var(--yellow); }
+        footer nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 1.25rem 0; }
+        footer a { color: #fff; }
+        footer a:hover { color: var(--yellow); }
+        footer small { color: #9aa5b1; display: block; border-top: 1px solid var(--home-green-2); padding-top: 1.25rem; margin-top: 1.25rem; }
+
+        @media (max-width: 860px) {
+            header.home-header { flex-direction: column; align-items: flex-start; }
+            header.home-header nav ul { gap: 0.25rem 1.1rem; }
+
+            .home-page #hero.reference-hero { min-height: 700px; }
+            .home-page #hero.reference-hero .hero-copy { width: 100%; min-height: 700px; padding: 3rem var(--gutter); }
+            .home-page #hero.reference-hero .hero-media { width: 100%; min-height: 700px; }
+            .home-page #hero.reference-hero .hero-media img { min-height: 700px; }
+            .home-page #hero.reference-hero .hero-media::after {
+                background:
+                    linear-gradient(to left, var(--home-green) 0%, rgba(11,59,46,.82) 72%, rgba(11,59,46,.55) 100%),
+                    linear-gradient(to top, rgba(11,59,46,.7) 0%, transparent 30%);
+            }
+
+            .home-page #pick-vehicle .travel-grid { grid-template-columns: repeat(2, 1fr); }
+            .home-page #pick-vehicle .travel-grid li:nth-child(2) a { border-right: 0; }
+            .home-page #pick-vehicle .travel-grid li:nth-child(-n+2) a { border-bottom: 1px solid var(--home-line); }
+
+            .home-page .module-grid { grid-template-columns: 1fr; }
+            .home-page .module-card { min-height: 290px; }
+            .home-page .sign-preview, .home-page .decision-practice { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 680px) {
+            .site-notice { height: 30px; font-size: .54rem; letter-spacing: .12em; }
+            main > section { padding-top: 5rem; padding-bottom: 5rem; }
+            .home-page #hero.reference-hero .hero-copy h1 { font-size: clamp(3.5rem, 17vw, 4.8rem); }
+            .home-page .hero-metrics { grid-template-columns: 1fr; }
+            .home-page .hero-metrics div { display: flex; align-items: baseline; gap: .7rem; }
+
+            .home-page #pick-vehicle .travel-grid { grid-template-columns: 1fr; }
+            .home-page #pick-vehicle .travel-grid li a { min-height: 260px; border-right: 0; border-bottom: 1px solid var(--home-line); }
+            .home-page #pick-vehicle .travel-grid li:last-child a { border-bottom: 0; }
+            .split-heading { grid-template-columns: 1fr; gap: 1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .module-card { transition: none; }
+            .module-card:hover { transform: none; }
+        }
+
+        @media (max-width: 860px) {
+            header.home-header { position: static; }
+            header.home-header nav { border-radius: 22px; max-width: 100%; }
+            header.home-header nav ul { flex-wrap: wrap; gap: .25rem; }
+            header.home-header nav a { padding: .5rem .85rem; font-size: .84rem; }
+        }
+
+/* sliding nav pill */
+header.home-header nav ul { position: relative; }
+header.home-header nav a { position: relative; z-index: 1; }
+.nav-pill { position: absolute; top: 0; left: 0; z-index: 0; border-radius: 999px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.2); pointer-events: none; transition: transform .42s cubic-bezier(.2,.8,.2,1), width .42s cubic-bezier(.2,.8,.2,1), height .42s cubic-bezier(.2,.8,.2,1); will-change: transform, width; }
+header.home-header nav.has-pill a[aria-current="page"] { background: transparent; box-shadow: none; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+main { animation: pageIn .4s ease both; }
+@media (prefers-reduced-motion: reduce) { .nav-pill { transition: none; } main { animation: none; } }
+    </style>
+</head>
+<body class="home-page">
+
+<div class="site-notice">Know the rule. Respect the road. Get home safe.</div>
+
+<header class="home-header">
+    <a href="index.html"><strong>RoadWise</strong> <span>Pakistan road guide</span></a>
+    <nav aria-label="Main">
+        <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="signs-and-fines.html">Signs, Rules &amp; Fines</a></li>
+            <li><a href="vehicle-guides.html">Ride Guides</a></li>
+            <li><a href="emergency.html">Emergency</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section id="hero" class="home-hero reference-hero">
+        <div class="hero-copy">
+            <p class="eyebrow">Made for every Pakistani road user</p>
+            <h1>Roads make <span>more sense</span> when rules do.</h1>
+            <p class="hero-summary">Clear, practical guidance on road signs, traffic offences and everyday safety—without the legal jargon.</p>
+            <dl class="hero-metrics" aria-label="RoadWise content">
+                <div><dt>32</dt><dd>Signs &amp; markings</dd></div>
+                <div><dt>5</dt><dd>Vehicle guides</dd></div>
+                <div><dt>112</dt><dd>Practice questions</dd></div>
+            </dl>
+        </div>
+        <figure class="hero-media">
+            <img src="image/website.jpg" decoding="async" onerror="this.closest('figure').hidden=true" alt="Two green auto rickshaws occupy a narrow urban street as pedestrians walk between them. Dense buildings, overhead utility wires, and Pakistani flags line the warmly lit road, creating a busy, atmospheric scene.">
+            <figcaption>Everyday roads. Better decisions.</figcaption>
+        </figure>
+    </section>
+
+    <section id="pick-vehicle">
+        <div class="section-heading centered">
+            <p class="eyebrow">Guidance that fits your journey</p>
+            <h2>Safe travel is for everyone.</h2>
+            <p>Start with the way you move most often.</p>
+        </div>
+        <ul class="travel-grid">
+            <li><a href="vehicle-guides.html#bikes"><span class="mode-key">M</span><strong>On a bike</strong><small>Helmet rules, lane position and pillion safety.</small><span class="card-arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="vehicle-guides.html#cars"><span class="mode-key">C</span><strong>Behind a wheel</strong><small>Seatbelts, speed limits and safe overtaking.</small><span class="card-arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="vehicle-guides.html#rickshaws"><span class="mode-key">R</span><strong>In a rickshaw</strong><small>Passenger limits, visibility and road position.</small><span class="card-arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="vehicle-guides.html#buses"><span class="mode-key">P</span><strong>Public transport</strong><small>Safer travel in vans, wagons and buses.</small><span class="card-arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+    </section>
+
+    <section id="learning-path" class="learning-path">
+        <div class="section-heading split-heading">
+            <div>
+                <p class="eyebrow">A simple learning path</p>
+                <h2>Know what to notice before it matters.</h2>
+            </div>
+            <p>Short, practical modules turn road rules into decisions you can use in real traffic.</p>
+        </div>
+        <div class="module-grid">
+            <a href="signs-and-fines.html#shapes" class="module-card">
+                <span>01 · Read</span>
+                <h3>Understand the road</h3>
+                <p>Learn the shape and colour system behind signs, lines and signals.</p>
+                <strong>Explore signs <span aria-hidden="true">→</span></strong>
+            </a>
+            <a href="vehicle-guides.html" class="module-card">
+                <span>02 · Apply</span>
+                <h3>Control your space</h3>
+                <p>Build safer habits around braking, blind spots and following distance.</p>
+                <strong>Choose a guide <span aria-hidden="true">→</span></strong>
+            </a>
+            <a href="quiz.html" class="module-card">
+                <span>03 · Practise</span>
+                <h3>Make the decision</h3>
+                <p>Work through local scenarios and get clear explanations instantly.</p>
+                <strong>Take the test <span aria-hidden="true">→</span></strong>
+            </a>
+        </div>
+    </section>
+
+    <section id="sign-preview" class="sign-preview">
+        <div class="sign-intro">
+            <p class="eyebrow">Learn the visual language</p>
+            <h2>A shape tells you what kind of decision comes next.</h2>
+            <p>Recognise the category first. Read the detail second.</p>
+            <a href="signs-and-fines.html">View all 32 signs and markings <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="sign-samples" aria-label="Examples of road sign categories">
+            <article>
+                <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#b43b3b"/><text x="50" y="57" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">STOP</text></svg>
+                <div><strong>Stop</strong><span>Priority</span></div>
+            </article>
+            <article>
+                <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,7 94,88 6,88" fill="#faf8f2" stroke="#b43b3b" stroke-width="9"/><path d="M25 70 Q50 40 75 70" fill="none" stroke="#0c261d" stroke-width="8"/></svg>
+                <div><strong>Hazard ahead</strong><span>Warning</span></div>
+            </article>
+            <article>
+                <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="#175f59"/><path d="M72 50 H34 M42 34 L25 50 L42 66" fill="none" stroke="#fff" stroke-width="9"/></svg>
+                <div><strong>Turn left</strong><span>Mandatory</span></div>
+            </article>
+        </div>
+    </section>
+
+    <section id="quiz-banner">
+        <p class="eyebrow">Ready to practise?</p>
+        <h2>Take a 10-question road test.</h2>
+        <p>Get an instant score and a clear explanation for every decision.</p>
+        <a href="quiz.html">Start the quick test <span aria-hidden="true">→</span></a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>RoadWise</strong>: clear guidance for safer roads.</p>
+    <nav aria-label="Footer">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Take the quiz</a></li>
+            <li><a href="emergency.html#hotlines">Emergency numbers</a></li>
+        </ul>
+    </nav>
+    <p><small>&copy; 2026 RoadWise. Educational guidance only. Always follow local traffic law. Fines vary by province and change over time, so check with your local traffic police.</small></p>
+</footer>
+
+<script>
+(function () {
+    var nav = document.querySelector('header.home-header nav');
+    if (!nav) return;
+    var ul = nav.querySelector('ul');
+    var links = [].slice.call(ul.querySelectorAll('a'));
+    var pill = document.createElement('span');
+    pill.className = 'nav-pill'; pill.setAttribute('aria-hidden', 'true');
+    ul.insertBefore(pill, ul.firstChild);
+    var cur = ul.querySelector('a[aria-current="page"]');
+    function place(a, animate) {
+        var r = a.getBoundingClientRect(), u = ul.getBoundingClientRect();
+        pill.style.transition = animate ? '' : 'none';
+        pill.style.width = r.width + 'px'; pill.style.height = r.height + 'px';
+        pill.style.transform = 'translate(' + (r.left - u.left) + 'px,' + (r.top - u.top) + 'px)';
+        if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+    }
+    function fileOf(href) { return (new URL(href, location.href).pathname.split('/').pop() || 'index.html'); }
+    function sync() {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        links.forEach(function (l) { if (fileOf(l.href) === here) { l.setAttribute('aria-current', 'page'); cur = l; } else { l.removeAttribute('aria-current'); } });
+        if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    }
+    if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    window.addEventListener('resize', function () { if (cur) place(cur, false); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (cur) place(cur, false); });
+    links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button || a.target) return;
+            if (fileOf(a.href) === (location.pathname.split('/').pop() || 'index.html')) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            e.preventDefault();
+            links.forEach(function (l) { l.removeAttribute('aria-current'); });
+            a.setAttribute('aria-current', 'page'); cur = a; place(a, true);
+            setTimeout(function () { location.href = a.href; }, 360);
+        });
+    });
+})();
+</script>
+</body>
+</html>

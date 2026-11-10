@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Knowledge Quiz | RoadWise</title>
+    <meta name="description" content="Practise Pakistani road signs and road safety rules with random 10-question tests, including real sign images.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b3d2f'/%3E%3Cpath d='M30 82 L44 18 H56 L70 82 H60 L50 38 L40 82Z' fill='%23f2bd3f'/%3E%3C/svg%3E">
+    <style>
+
+:root {
+    --asphalt: #0b3d2f;
+    --asphalt-2: #124c3b;
+    --ink: #0c261d;
+    --concrete: #f5f1e8;
+    --paper: #fbf9f4;
+    --line: #d8d1c3;
+    --muted: #5d6c66;
+
+    --yellow: #f2bd3f;     
+    --red: #b43b3b;        
+    --blue: #175f59;       
+    --green: #0b3b2e;      
+    --orange: #c56a32;
+
+    --home-green: var(--asphalt);
+    --home-green-2: var(--asphalt-2);
+    --home-yellow: var(--yellow);
+
+    --font-head: "Manrope", system-ui, sans-serif;
+    --font-body: "Manrope", system-ui, sans-serif;
+
+    --page: 1180px;
+    --gutter: max(1.25rem, calc((100% - var(--page)) / 2));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body {
+    background: var(--concrete);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+img, svg, video { max-width: 100%; display: block; }
+ul { padding: 0; list-style: none; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 4px; }
+small { font-size: 0.85rem; color: var(--muted); }
+em { font-style: italic; }
+
+h1, h2, h3 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+h2 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
+h3 { font-size: 1.7rem; margin: 2.25rem 0 0.75rem; }
+
+h2::after {
+    content: "";
+    display: block;
+    width: min(240px, 55%);
+    height: 8px;
+    margin-top: 0.7rem;
+    background: repeating-linear-gradient(90deg, var(--dash, var(--yellow)) 0 30px, transparent 30px 46px);
+}
+
+header.home-header {
+    min-height: 70px;
+    background: var(--home-green);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem var(--gutter);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 3px solid var(--home-yellow); 
+}
+
+header.home-header > a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+header.home-header > a strong { font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; letter-spacing: -.04em; }
+header.home-header > a span { font-size: 0.68rem; color: var(--yellow); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+
+header.home-header nav {
+    background: rgba(18, 76, 59, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 0.35rem 0.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+header.home-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+header.home-header nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header.home-header nav a[aria-current="page"] {
+    background: #ffffff;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 800;
+}
+
+header.home-header nav a:not([aria-current="page"]):hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+main > section { padding: 4.5rem var(--gutter); }
+main > section > p { max-width: 68ch; }
+main > section > p + p { margin-top: 0.9rem; }
+main > section > h2 + p { color: var(--muted); }
+
+#hero, #page-intro {
+    background: var(--asphalt);
+    color: #fff;
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 5.5rem;
+}
+
+#hero::after, #page-intro::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 1.6rem;
+    height: 8px;
+    background: repeating-linear-gradient(90deg, var(--yellow) 0 60px, transparent 60px 100px);
+}
+#hero > p:first-child, #page-intro > p:first-child {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+#hero h1, #page-intro h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    max-width: 16ch;
+    margin-bottom: 1.25rem;
+}
+#page-intro h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); max-width: 18ch; }
+#hero p, #page-intro p { color: #d9e1dc; }
+#page-intro a { color: var(--yellow); }
+#page-intro a:hover { color: #fff; }
+#page-intro > p:last-child { margin-top: 1.25rem; }
+
+#hero {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    column-gap: 3rem;
+    align-items: center;
+}
+#hero > *:not(figure) { grid-column: 1; }
+#hero figure { grid-column: 2; grid-row: 1 / span 4; }
+#hero > p:nth-of-type(2) { font-size: 1.2rem; max-width: 50ch; }
+
+#hero p:has(> a) { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.75rem; }
+#hero p > a {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.85rem 1.4rem;
+    border-radius: 6px;
+    border: 2px solid var(--yellow);
+    background: var(--yellow);
+    color: var(--ink);
+}
+#hero p > a + a { background: transparent; color: #fff; }
+#hero p > a:hover { background: #fff; border-color: #fff; color: var(--ink); }
+
+#hero figure {
+    background: var(--asphalt-2);
+    border: 2px dashed rgba(255, 194, 14, 0.5);
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: var(--yellow);
+}
+#hero figure svg { width: 100%; height: auto; }
+#hero figcaption { color: #d9e1dc; font-size: 0.9rem; margin-top: 1rem; }
+
+#page-intro nav ul { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+#page-intro nav a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 2px solid var(--yellow);
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
+}
+#page-intro nav a:hover { background: var(--yellow); color: var(--ink); }
+
+#pick-vehicle ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+#pick-vehicle li { grid-column: span 2; }
+#pick-vehicle li:nth-child(n+4) { grid-column: span 3; }
+#pick-vehicle a {
+    display: block;
+    height: 100%;
+    padding: 1.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+#pick-vehicle a:hover { transform: translateY(-5px); color: #fff; }
+#pick-vehicle a strong { font-family: var(--font-head); font-size: 2rem; font-weight: 800; line-height: 1; display: block; margin-bottom: 0.4rem; }
+#pick-vehicle li:nth-child(1) a { background: var(--red); }
+#pick-vehicle li:nth-child(2) a { background: var(--blue); }
+#pick-vehicle li:nth-child(3) a { background: var(--yellow); color: var(--ink); }
+#pick-vehicle li:nth-child(4) a { background: var(--green); }
+#pick-vehicle li:nth-child(5) a { background: var(--asphalt); }
+#pick-vehicle li:nth-child(3) a:hover { color: var(--ink); }
+
+main ol { counter-reset: step; margin: 1.75rem 0; max-width: 760px; }
+main ol > li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.75rem 4.25rem;
+    border-left: 4px dashed var(--line);
+    margin-left: 1.4rem;
+}
+main ol > li:last-child { border-left-color: transparent; padding-bottom: 0; }
+main ol > li::before {
+    content: counter(step);
+    position: absolute;
+    left: -1.65rem; top: -0.15rem;
+    width: 3rem; height: 3rem;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 3px solid var(--ink);
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+main ol > li strong { display: block; font-size: 1.15rem; }
+
+#five-checks { background: var(--paper); }
+
+main dl { margin: 1.75rem 0; display: grid; gap: 1.25rem; max-width: 820px; }
+main dt {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    padding-left: 1rem;
+    border-left: 8px solid var(--red);
+}
+main dd { padding-left: calc(1rem + 8px); margin-top: 0.35rem; color: var(--muted); }
+#results dt { border-left-color: var(--green); }
+
+table { width: 100%; border-collapse: collapse; background: var(--paper); margin: 1.75rem 0 0.5rem; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+caption { text-align: left; font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; padding: 0 0 0.6rem; background: transparent; }
+th, td { padding: 0.85rem 1rem; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); }
+thead th { background: var(--asphalt); color: #fff; font-size: 0.9rem; }
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: #f4f0e7; }
+tbody tr:last-child > * { border-bottom: 0; }
+td svg { margin: 0 auto; }
+
+meter { width: min(220px, 40vw); height: 14px; vertical-align: middle; margin-right: 0.5rem; }
+meter::-webkit-meter-bar { background: #e5dfd2; border: 0; border-radius: 7px; }
+meter::-webkit-meter-optimum-value { background: var(--green); border-radius: 7px; }
+meter::-webkit-meter-suboptimum-value { background: var(--yellow); border-radius: 7px; }
+meter::-webkit-meter-even-less-good-value { background: var(--red); border-radius: 7px; }
+meter::-moz-meter-bar { background: var(--green); }
+meter:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--yellow); }
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--red); }
+
+#fines td > strong { color: var(--red); }
+#hotlines td a { font-family: var(--font-head); font-size: 2rem; font-weight: 800; text-decoration: none; color: var(--red); line-height: 1; }
+#hotlines td a:hover { color: var(--ink); }
+#hotlines td strong { font-weight: 800; }
+
+main figure { margin: 1.75rem 0; max-width: 760px; border-radius: 14px; overflow: hidden; background: var(--paper); box-shadow: 0 0 0 1px var(--line); }
+main figure svg { width: 100%; height: auto; }
+main figcaption { padding: 0.9rem 1.1rem; font-size: 0.95rem; color: var(--muted); }
+#hero figure { max-width: none; box-shadow: none; overflow: visible; }
+
+#gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+#gallery > h2, #gallery > h3, #gallery > p { grid-column: 1 / -1; }
+#gallery > h3 { margin-bottom: 0; }
+#gallery figure { display: flex; align-items: center; gap: 1.25rem; padding: 1.1rem; margin: 0; max-width: none; border-left: 8px solid var(--asphalt); }
+#gallery figure svg { width: 90px; height: 90px; flex: none; }
+#gallery figcaption { padding: 0; color: var(--ink); }
+#gallery figcaption strong { font-family: var(--font-head); font-size: 1.35rem; display: block; line-height: 1.1; margin-bottom: 0.2rem; }
+
+#markings { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem 1.5rem; background: var(--paper); }
+#markings > h2, #markings > p { grid-column: 1 / -1; }
+#markings figure { margin: 0; max-width: none; background: var(--asphalt); }
+#markings figcaption { background: var(--paper); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; color: var(--ink); }
+#markings figure svg { height: 80px; }
+
+details {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin: 0.75rem 0;
+    max-width: 820px;
+}
+details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem 3.2rem 1rem 1.25rem;
+    font-weight: 700;
+    position: relative;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after {
+    content: "+";
+    position: absolute; right: 1.1rem; top: 50%;
+    transform: translateY(-50%);
+    width: 1.8rem; height: 1.8rem;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 1.3rem; line-height: 1;
+}
+details[open] > summary::after { content: "\2212"; background: var(--ink); color: #fff; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > summary:hover { background: #f4f0e7; border-radius: 10px; }
+details > :not(summary) { padding-left: 1.25rem; padding-right: 1.25rem; }
+details > p { margin: 1rem 0; }
+details > figure { margin-left: 1.25rem; margin-right: 1.25rem; width: calc(100% - 2.5rem); }
+details > p:first-of-type { margin-top: 1rem; }
+details > p:last-child { margin-bottom: 1.1rem; }
+
+#bikes, #cars, #rickshaws, #vans, #buses { border-top: 14px solid var(--accent); }
+#bikes { --accent: var(--red);    --dash: var(--red);    background: var(--paper); }
+#cars { --accent: var(--blue);   --dash: var(--blue);   background: var(--concrete); }
+#rickshaws { --accent: var(--yellow); --dash: var(--yellow); background: var(--paper); }
+#vans { --accent: var(--green);  --dash: var(--green);  background: var(--concrete); }
+#buses { --accent: var(--orange); --dash: var(--orange); background: var(--paper); }
+
+#bikes > p:nth-of-type(1), #cars > p:nth-of-type(1), #rickshaws > p:nth-of-type(1),
+#vans > p:nth-of-type(1), #buses > p:nth-of-type(1) {
+    font-size: 1.2rem;
+    color: var(--ink);
+    border-left: 6px solid var(--accent);
+    padding-left: 1rem;
+}
+#cars figure, #vans figure { background: var(--paper); }
+
+#pre-ride-check { background: var(--paper); }
+fieldset { border: 0; padding: 0; min-width: 0; }
+#pre-ride-check legend { font-weight: 700; margin-bottom: 0.75rem; color: var(--muted); }
+#pre-ride-check fieldset p { margin: 0 0 0.6rem; max-width: 560px; }
+#pre-ride-check label {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--concrete);
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+#pre-ride-check label:hover { border-color: var(--blue); }
+#pre-ride-check label:has(input:checked) { border-color: var(--green); background: #e6f4ee; text-decoration: line-through; text-decoration-color: var(--green); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--green); width: 1.3rem; height: 1.3rem; flex: none; }
+
+#quiz-banner { background: var(--yellow); color: var(--ink); text-align: left; }
+#quiz-banner h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 14ch; }
+#quiz-banner h2::after { --dash: var(--ink); }
+#quiz-banner p { color: var(--ink) !important; font-size: 1.2rem; font-weight: 700; }
+#quiz-banner p:last-child { margin-top: 1.5rem; }
+#quiz-banner a {
+    display: inline-block;
+    background: var(--ink); color: #fff;
+    padding: 0.9rem 1.6rem;
+    border-radius: 6px;
+    text-decoration: none; font-weight: 700;
+}
+#quiz-banner a:hover { background: #000; color: var(--yellow); }
+
+#quiz form { display: grid; gap: 1.5rem; margin-top: 2rem; max-width: 820px; }
+#quiz fieldset { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; }
+#quiz legend {
+    float: left; width: 100%;
+    font-family: var(--font-head);
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+#quiz legend + p { clear: both; }
+#quiz fieldset p { margin: 0 0 0.6rem; }
+#quiz fieldset label {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.85rem 1.1rem;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fafbfc;
+}
+#quiz fieldset label:hover { border-color: var(--blue); }
+#quiz fieldset label:has(input:checked) { border-color: var(--blue); background: #e8f0fa; font-weight: 700; }
+#quiz details { background: transparent; border: 0; margin-top: 1rem; }
+#quiz details > summary {
+    display: inline-block; padding: 0.55rem 3rem 0.55rem 1.1rem;
+    background: var(--asphalt); color: #fff; border-radius: 6px;
+}
+#quiz details > summary:hover { background: var(--asphalt-2); }
+#quiz details[open] > summary { border-bottom: 0; border-radius: 6px; }
+#quiz details > summary::after { right: 0.7rem; width: 1.5rem; height: 1.5rem; font-size: 1.1rem; }
+#quiz details > p {
+    margin: 0.75rem 0 0; padding: 1rem 1.1rem;
+    border-left: 6px solid var(--green);
+    background: #e6f4ee; border-radius: 0 10px 10px 0;
+}
+#results { background: var(--paper); }
+#results dl { max-width: 720px; }
+
+label { font-weight: 700; }
+input[type="text"], input[type="tel"], select, textarea {
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+input[type="text"]:focus, input[type="tel"]:focus, select:focus, textarea:focus { border-color: var(--blue); outline: 3px solid rgba(20, 86, 160, 0.2); }
+button[type="submit"] {
+    font: inherit; font-weight: 700;
+    background: var(--yellow); color: var(--ink);
+    border: 2px solid var(--ink);
+    padding: 0.85rem 1.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button[type="submit"]:hover { background: var(--ink); color: var(--yellow); }
+
+#scenarios { background: var(--paper); }
+#scenarios details[open] { border-color: var(--red); }
+#crash { background: var(--concrete); }
+#hotlines { background: var(--paper); }
+
+body > footer { background: #082f24; color: #d9e1dc; padding: 3rem var(--gutter) 2rem; }
+body > footer > p:first-child { color: #fff; font-size: 1.1rem; }
+body > footer strong { font-family: var(--font-head); font-size: 1.6rem; color: var(--yellow); }
+body > footer nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 1.25rem 0; }
+body > footer a { color: #fff; }
+body > footer a:hover { color: var(--yellow); }
+body > footer small { color: #9aa79f; display: block; border-top: 1px solid var(--asphalt-2); padding-top: 1.25rem; }
+
+@media (max-width: 860px) {
+    header.home-header { flex-direction: column; align-items: flex-start; }
+    header.home-header nav ul { gap: 0.25rem 1.1rem; }
+    main > section { padding: 3rem var(--gutter); }
+
+    #hero { display: block; padding-bottom: 5rem; }
+    #hero figure { margin-top: 2.5rem; }
+
+    #pick-vehicle ul { grid-template-columns: 1fr; }
+    #pick-vehicle li, #pick-vehicle li:nth-child(n+4) { grid-column: auto; }
+
+    #gallery, #markings { grid-template-columns: 1fr; }
+
+    table { display: block; overflow-x: auto; }
+    main ol > li { padding-left: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    #pick-vehicle a { transition: none; }
+    #pick-vehicle a:hover { transform: none; }
+}
+
+
+        @media (max-width: 860px) {
+            header.home-header { position: static; }
+            header.home-header nav { border-radius: 22px; max-width: 100%; }
+            header.home-header nav ul { flex-wrap: wrap; gap: .25rem; }
+            header.home-header nav a { padding: .5rem .85rem; font-size: .84rem; }
+        }
+
+#quiz .quiz-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+button[type="reset"] { font: inherit; font-weight: 700; background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: .85rem 1.6rem; border-radius: 6px; cursor: pointer; }
+button[type="reset"]:hover { background: var(--ink); color: #fff; }
+#quiz-score { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; }
+#quiz fieldset.is-correct { border-color: var(--green); box-shadow: inset 6px 0 0 var(--green); }
+#quiz fieldset.is-wrong { border-color: var(--red); box-shadow: inset 6px 0 0 var(--red); }
+#quiz .verdict { margin-top: 1rem; font-weight: 800; }
+#quiz .is-correct .verdict { color: var(--green); }
+#quiz .is-wrong .verdict { color: var(--red); }
+#results dt.is-active, #results dd.is-active { background: var(--yellow); }
+#results dt.is-active { padding-top: .5rem; border-left-color: var(--ink); }
+#results dd.is-active { padding-bottom: .5rem; }
+
+.site-notice { height: 34px; display: grid; place-items: center; color: #1b2d27; background: var(--home-yellow); font-size: .65rem; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; text-align: center; padding: 0 .5rem; }
+@media (max-width: 680px) { .site-notice { height: 30px; font-size: .54rem; letter-spacing: .12em; } }
+
+/* typography matched to the homepage */
+body { font-size: 1rem; line-height: 1.7; letter-spacing: -0.005em; }
+h1, h2, h3 { font-weight: 800; line-height: 1; letter-spacing: -0.045em; }
+h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.05; }
+h3 { font-size: 1.7rem; letter-spacing: -0.025em; }
+#page-intro h1 { letter-spacing: -0.06em; line-height: .95; }
+#page-intro > p:first-child { display: inline-block; margin-bottom: 1.25rem; padding: .5rem .8rem; border: 1px solid rgba(242,189,63,.45); border-radius: 999px; color: var(--yellow); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; line-height: 1.2; }
+
+/* ---------- quiz v2 ---------- */
+#quiz { padding-top: 3rem; }
+.modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 960px; }
+.mode { height: 100%; font: inherit; text-align: left; display: block; padding: 1.1rem 1.3rem; background: #fff; color: var(--ink); border: 2px solid var(--line); border-radius: 14px; cursor: pointer; }
+.mode strong { display: block; font-family: var(--font-head); font-size: 1.35rem; letter-spacing: -0.03em; }
+.mode span { display: block; color: var(--muted); font-size: .95rem; margin-top: .2rem; }
+.mode:hover { border-color: var(--ink); }
+.mode[aria-pressed="true"] { border-color: var(--ink); background: var(--yellow); box-shadow: 4px 4px 0 var(--ink); }
+.mode[aria-pressed="true"] span { color: var(--ink); }
+.round-info { margin: 1.5rem 0 0; color: var(--muted); font-weight: 700; }
+#quiz form { max-width: 960px; }
+#quiz legend { font-size: 1.35rem; line-height: 1.25; }
+.qnum { display: block; margin-bottom: .35rem; font-family: var(--font-body, inherit); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.urdu-wrap { clear: both; margin: 0 0 1rem; padding: .4rem .8rem; background: #fff; border: 1px solid var(--line); border-radius: 10px; max-width: 460px; }
+.urdu-wrap img { display: block; width: 100%; height: auto; }
+.sign-opts { clear: both; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; }
+#quiz fieldset label.sign-opt { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 1; padding: .9rem; background: #fff; border: 3px solid var(--line); border-radius: 14px; }
+.sign-opt img { mix-blend-mode: multiply; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.sign-opt input, .text-opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.letter { position: absolute; top: .45rem; left: .45rem; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--ink); color: #fff; font-size: .8rem; font-weight: 800; }
+#quiz fieldset label.text-opt { position: relative; padding-left: 3.4rem; margin-bottom: .6rem; }
+.text-opt .letter { top: 50%; left: .9rem; transform: translateY(-50%); }
+#quiz fieldset label:has(input:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
+#quiz fieldset label:has(input:checked) { border-color: var(--blue); background: #e8f0fa; }
+#quiz fieldset label.sign-opt:has(input:checked) { background: #fff; box-shadow: 0 0 0 3px #bcd2ee; }
+#quiz fieldset label.is-right-opt { border-color: var(--green) !important; background: #e6f4ee !important; box-shadow: none !important; }
+#quiz fieldset label.is-picked-wrong { border-color: var(--red) !important; background: #fbe9e6 !important; box-shadow: none !important; }
+#quiz fieldset.is-correct { border-color: var(--green); box-shadow: inset 6px 0 0 var(--green); }
+#quiz fieldset.is-wrong { border-color: var(--red); box-shadow: inset 6px 0 0 var(--red); }
+#quiz .verdict { margin: 1rem 0 0; font-weight: 800; }
+#quiz .verdict .exp { display: block; margin-top: .35rem; font-weight: 400; color: var(--ink); }
+#quiz .is-correct .verdict { color: var(--green); }
+#quiz .is-wrong .verdict { color: var(--red); }
+#quiz .check { font: inherit; font-weight: 700; margin-top: 1rem; padding: .55rem 1.1rem; background: var(--asphalt); color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+#quiz .check:hover { background: var(--asphalt-2); }
+.quiz-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; max-width: none; }
+.btn-ghost { font: inherit; font-weight: 700; background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: .85rem 1.6rem; border-radius: 6px; cursor: pointer; }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+#quiz-score { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; margin-top: 1rem; }
+.source-note { margin-top: 1.5rem; }
+#results dt.is-active, #results dd.is-active { background: var(--yellow); }
+#results dt.is-active { padding-top: .5rem; border-left-color: var(--ink); }
+#results dd.is-active { padding-bottom: .5rem; }
+#page-intro small { color: #c5d2cb; }
+@media (max-width: 620px) { .modes { grid-template-columns: 1fr; } #quiz fieldset { padding: 1rem; } .sign-opts { gap: .5rem; } #quiz fieldset label.sign-opt { padding: .5rem; border-width: 2px; } .letter { width: 1.3rem; height: 1.3rem; font-size: .7rem; } }
+
+/* sliding nav pill */
+header.home-header nav ul { position: relative; }
+header.home-header nav a { position: relative; z-index: 1; }
+.nav-pill { position: absolute; top: 0; left: 0; z-index: 0; border-radius: 999px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.2); pointer-events: none; transition: transform .42s cubic-bezier(.2,.8,.2,1), width .42s cubic-bezier(.2,.8,.2,1), height .42s cubic-bezier(.2,.8,.2,1); will-change: transform, width; }
+header.home-header nav.has-pill a[aria-current="page"] { background: transparent; box-shadow: none; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+main { animation: pageIn .4s ease both; }
+@media (prefers-reduced-motion: reduce) { .nav-pill { transition: none; } main { animation: none; } }
+    </style>
+</head>
+<body>
+<div class="site-notice">Know the rule. Respect the road. Get home safe.</div>
+
+
+<header class="home-header">
+    <a href="index.html"><strong>RoadWise</strong> <span>Pakistan road guide</span></a>
+    <nav aria-label="Main">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signs-and-fines.html">Signs, Rules &amp; Fines</a></li>
+            <li><a href="vehicle-guides.html">Ride Guides</a></li>
+            <li><a href="emergency.html">Emergency</a></li>
+            <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section id="page-intro">
+        <p>Practice tests, no timer</p>
+        <h1>How road-wise are you?</h1>
+        <p>Choose a test. Every round gives you 10 questions picked at random, so you can keep practising without seeing the same set twice.</p>
+        <p><small>Pick an answer, check it as you go, then press <em>See my score</em> at the end.</small></p>
+    </section>
+
+    <section id="quiz">
+        <div class="modes" role="group" aria-label="Choose a test">
+            <button type="button" class="mode" data-mode="signs" aria-pressed="true"><strong>Road sign test</strong><span id="mode-signs-desc">Pick the right sign from three</span></button>
+            <button type="button" class="mode" data-mode="rules" aria-pressed="false"><strong>Rules &amp; safety</strong><span id="mode-rules-desc">Situations, braking, crashes and vehicles</span></button>
+        </div>
+
+        <noscript><p><strong>The quizzes need JavaScript.</strong> Please turn it on to take a test.</p></noscript>
+
+        <p id="round-info" class="round-info"></p>
+        <form id="quiz-form" novalidate></form>
+
+        <p class="quiz-actions">
+            <button type="button" id="score-btn">See my score</button>
+            <button type="button" id="clear-btn" class="btn-ghost">Clear answers</button>
+            <button type="button" id="new-btn" class="btn-ghost">New questions</button>
+        </p>
+        <p id="quiz-score" role="status" hidden></p>
+        <p class="source-note"><small>Sign questions are based on published Pakistani road sign practice sets. Always check the latest official rules before your licence test.</small></p>
+    </section>
+
+    <section id="results">
+        <h2>Your result</h2>
+        <p>Your band is highlighted here after you press <em>See my score</em>.</p>
+        <dl>
+            <dt data-min="100" data-max="100">Perfect score</dt>
+            <dd>Road-wise. You think like a safe road user. Share the site with someone who drives or rides.</dd>
+            <dt data-min="70" data-max="99">70% to 99%</dt>
+            <dd>Strong. Review the questions you missed in the <a href="vehicle-guides.html">Ride Guides</a> or the <a href="signs-and-fines.html">signs page</a>.</dd>
+            <dt data-min="50" data-max="69">50% to 69%</dt>
+            <dd>Getting there. Start with <a href="signs-and-fines.html">Signs, Rules &amp; Fines</a>, then your vehicle guide.</dd>
+            <dt data-min="0" data-max="49">Under 50%</dt>
+            <dd>Good thing you checked. Read the <a href="signs-and-fines.html">signs page</a> first and try again tomorrow.</dd>
+        </dl>
+        <p><a href="#quiz" id="retake">Try a new round</a> | <a href="index.html">Back to home</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>RoadWise</strong>: clear guidance for safer roads.</p>
+    <nav aria-label="Footer">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Take the quiz</a></li>
+            <li><a href="emergency.html#hotlines">Emergency numbers</a></li>
+        </ul>
+    </nav>
+    <p><small>&copy; 2026 RoadWise. Educational guidance only. Always follow local traffic law.</small></p>
+</footer>
+
+<script src="quiz-data.js"></script>
+<script>
+(function () {
+    var SIGNS = window.SIGN_BANK || [];
+    var RULES = [{"q": "You reach a junction with a STOP sign. What do you do?", "o": ["Slow down and go if the road is clear", "Come to a complete stop behind the line", "Stop only if another vehicle is coming"], "a": 1, "e": "A stop sign always means a full stop, even when nothing is coming. Learn more in <a href=\"signs-and-fines.html#shapes\">Signs, Rules &amp; Fines</a>."}, {"q": "A solid double yellow line runs down the middle of the road. May you cross it to overtake?", "o": ["Yes, if the road ahead is clear", "Only on a motorbike", "No, never to overtake"], "a": 2, "e": "Double solid lines separate opposing traffic. Crossing them to overtake is illegal. See <a href=\"signs-and-fines.html#markings\">road markings</a>."}, {"q": "Your front tyre bursts at speed. What is the first move?", "o": ["Brake hard", "Hold the handlebars straight and ease off the throttle", "Swerve to the shoulder immediately"], "a": 1, "e": "Braking or swerving sharply makes you lose control. Let speed fall first. See <a href=\"emergency.html#scenarios\">Emergency scenarios</a>."}, {"q": "What is the best way to use the front and rear brakes on a bike?", "o": ["Front only", "Rear only", "Both together, with slightly more on the front"], "a": 2, "e": "Weight moves forward under braking, so the front does most of the work. The rear adds stability. See the <a href=\"vehicle-guides.html#bikes\">motorbike guide</a>."}, {"q": "You are in a parked car and about to get out onto a busy road. What protects passing bikes?", "o": ["Open the door quickly to save time", "Use your far hand to open the door and look back first", "Honk, then open the door"], "a": 1, "e": "This is the Dutch Reach. It turns your body so you look over your shoulder before opening. See the <a href=\"vehicle-guides.html#cars\">car guide</a>."}, {"q": "You are riding beside a bus and cannot see the driver's face in the mirror. What does that mean?", "o": ["They can see you", "They probably cannot see you, so move out of that spot", "Nothing, it is just a mirror"], "a": 1, "e": "If you cannot see the driver's mirror, you are likely in a blind zone. Pass quickly or drop back. See the <a href=\"vehicle-guides.html#buses\">bus guide</a>."}, {"q": "Why does a three-wheeled rickshaw tip more easily than a car in a fast corner?", "o": ["It has a high centre of gravity and fewer wheels for support", "Its engine is too powerful", "Its tyres are always worn"], "a": 0, "e": "Weight sits high and the base is narrow, so cornering force can lift a wheel. Slow before the turn. See the <a href=\"vehicle-guides.html#rickshaws\">rickshaw guide</a>."}, {"q": "You arrive first at a crash. What do you do before helping the injured?", "o": ["Remove the rider's helmet at once", "Make the scene safe: hazard lights, warning triangle, call for help", "Move the injured person to the side of the road"], "a": 1, "e": "Protect the scene first so you do not become a second casualty. Do not move or unhelmet someone unless they cannot breathe. See <a href=\"emergency.html#crash\">crash scene steps</a>."}, {"q": "What gap should you keep behind the vehicle ahead in dry weather?", "o": ["About one second", "About three seconds", "Half a second, to keep up with traffic"], "a": 1, "e": "Three seconds gives you time to see, react and brake. Double it in rain or fog. See <a href=\"vehicle-guides.html#core-habits\">five habits for every road user</a>."}, {"q": "An ambulance with its siren on comes up behind you on a narrow road. What should you do?", "o": ["Speed up to stay ahead of it", "Move to the left, and slow down or stop so it can pass", "Stop in the middle of the lane"], "a": 1, "e": "Make room safely: move left and slow or stop, without braking suddenly or blocking the road. Do not follow it closely. See <a href=\"emergency.html#crash\">the emergency guide</a>."}, {"q": "In thick fog, which lights should you use?", "o": ["High beam, so you can see further", "Low beam, and fog lights if your vehicle has them", "No lights, so you do not dazzle others"], "a": 1, "e": "High beam reflects off the fog and blinds you. Low beam keeps you visible. Slow right down and increase your gap. See the <a href=\"vehicle-guides.html#cars\">car guide</a>."}, {"q": "A railway level crossing barrier starts to come down as you approach. What do you do?", "o": ["Cross quickly before it closes", "Stop behind the line and wait", "Drive around the barrier"], "a": 1, "e": "Never try to beat a train. Stop behind the line and wait until the barrier is fully open and the track is clear."}, {"q": "Why should rear-seat passengers wear seatbelts too?", "o": ["They do not need to, only the front seats matter", "An unbelted passenger can be thrown around in a crash and hurt others as well", "Only on motorways"], "a": 1, "e": "In a crash, an unbelted passenger becomes a heavy object moving at the speed of the car. Belts protect everyone in the vehicle. See the <a href=\"vehicle-guides.html#cars\">car guide</a>."}, {"q": "You feel drowsy on a long highway drive. What is the safest choice?", "o": ["Open the window and keep driving", "Pull off somewhere safe and rest", "Drive faster to arrive sooner"], "a": 1, "e": "Tiredness slows your reactions like alcohol does. Stop somewhere safe and rest. Plan a break about every two hours. See the <a href=\"vehicle-guides.html#cars\">car guide</a>."}, {"q": "You are driving a loaded pickup. Compared with driving it empty, what should you change?", "o": ["Nothing, the vehicle is the same", "Leave a bigger gap, because it needs longer to stop", "Brake later, because it is heavier"], "a": 1, "e": "More weight means a longer stopping distance and a higher chance of tipping. Leave extra distance and slow down early. See the <a href=\"vehicle-guides.html#vans\">van and pickup guide</a>."}, {"q": "You come to a flooded underpass. What do you do?", "o": ["Drive through slowly", "Do not enter. Find another route", "Follow the car ahead of you"], "a": 1, "e": "Floodwater hides its depth and any damage to the road. Vehicles stall or are swept away. If in doubt, turn around. See the <a href=\"vehicle-guides.html#cars\">car guide</a>."}];
+    var COUNT = 10, LETTERS = 'ABC';
+    var mode = 'signs', deck = [];
+    var form = document.getElementById('quiz-form');
+    var out = document.getElementById('quiz-score');
+    var info = document.getElementById('round-info');
+    var bands = [].slice.call(document.querySelectorAll('#results dt[data-min]'));
+
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+    function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+    function clearBands() {
+        bands.forEach(function (dt) { dt.classList.remove('is-active'); dt.nextElementSibling.classList.remove('is-active'); });
+        out.hidden = true; out.textContent = '';
+    }
+    function clearMark(fs) {
+        fs.classList.remove('is-correct', 'is-wrong');
+        [].forEach.call(fs.querySelectorAll('label'), function (l) { l.classList.remove('is-right-opt', 'is-picked-wrong'); });
+        var v = fs.querySelector('.verdict'); v.hidden = true; v.innerHTML = '';
+    }
+    function build() {
+        var src = mode === 'signs' ? SIGNS : RULES;
+        var picked = shuffle(src.slice()).slice(0, COUNT);
+        deck = picked.map(function (q) {
+            var order = shuffle(q.o.map(function (_, i) { return i; }));
+            return { q: q, order: order, correct: order.indexOf(q.a) };
+        });
+        form.innerHTML = deck.map(function (d, i) {
+            var q = d.q, head, opts;
+            if (mode === 'signs') {
+                head = '<legend><span class="qnum">Question ' + (i + 1) + ' of ' + deck.length + '</span>Which sign means <strong>\u201c' + esc(q.q) + '\u201d</strong>?</legend>' +
+                    '<div class="urdu-wrap" lang="ur" dir="rtl"><img src="images/quiz/u/' + q.u + '" alt="Urdu version of the question" loading="lazy"></div>';
+                opts = '<div class="sign-opts">' + d.order.map(function (oi, k) {
+                    return '<label class="sign-opt"><input type="radio" name="q' + i + '" value="' + k + '"><span class="letter">' + LETTERS[k] + '</span><img src="images/quiz/q/' + q.o[oi] + '" alt="Sign ' + LETTERS[k] + '" loading="lazy"></label>';
+                }).join('') + '</div>';
+            } else {
+                head = '<legend><span class="qnum">Question ' + (i + 1) + ' of ' + deck.length + '</span>' + esc(q.q) + '</legend>';
+                opts = d.order.map(function (oi, k) {
+                    return '<label class="text-opt"><input type="radio" name="q' + i + '" value="' + k + '"><span class="letter">' + LETTERS[k] + '</span>' + esc(q.o[oi]) + '</label>';
+                }).join('');
+            }
+            return '<fieldset class="qcard" data-i="' + i + '">' + head + opts + '<p class="verdict" role="status" hidden></p><p><button type="button" class="check">Check this answer</button></p></fieldset>';
+        }).join('');
+        info.textContent = (mode === 'signs' ? 'Road sign test' : 'Rules & safety') + ': ' + deck.length + ' random questions from a bank of ' + src.length + '.';
+        clearBands();
+    }
+    function mark(i) {
+        var d = deck[i], fs = form.children[i], v = fs.querySelector('.verdict');
+        var chosen = fs.querySelector('input:checked');
+        clearMark(fs);
+        v.hidden = false;
+        if (!chosen) { v.textContent = 'Pick an answer first.'; return null; }
+        var k = +chosen.value, ok = k === d.correct, labels = fs.querySelectorAll('label');
+        fs.classList.add(ok ? 'is-correct' : 'is-wrong');
+        labels[d.correct].classList.add('is-right-opt');
+        if (!ok) labels[k].classList.add('is-picked-wrong');
+        if (mode === 'signs') {
+            v.textContent = ok ? 'Correct.' : 'Not quite. The correct sign is ' + LETTERS[d.correct] + '.';
+        } else {
+            v.innerHTML = (ok ? 'Correct.' : 'Not quite. The correct answer is ' + LETTERS[d.correct] + '.') + '<span class="exp">' + d.q.e + '</span>';
+        }
+        return ok;
+    }
+    form.addEventListener('click', function (e) {
+        var b = e.target.closest('.check'); if (!b) return;
+        mark(+b.closest('fieldset').dataset.i); clearBands();
+    });
+    form.addEventListener('change', function (e) { clearMark(e.target.closest('fieldset')); clearBands(); });
+
+    document.getElementById('score-btn').addEventListener('click', function () {
+        clearBands();
+        var left = deck.filter(function (d, i) { return !form.children[i].querySelector('input:checked'); });
+        if (left.length) {
+            var first = form.children[deck.indexOf(left[0])];
+            out.hidden = false; out.textContent = 'Please answer every question first (' + left.length + ' left).';
+            first.scrollIntoView({ behavior: 'smooth', block: 'center' }); return;
+        }
+        var score = 0; deck.forEach(function (d, i) { if (mark(i)) score++; });
+        var pct = Math.round(100 * score / deck.length);
+        out.hidden = false; out.textContent = 'You got ' + score + ' out of ' + deck.length + ' (' + pct + '%).';
+        bands.forEach(function (dt) {
+            if (pct >= +dt.dataset.min && pct <= +dt.dataset.max) { dt.classList.add('is-active'); dt.nextElementSibling.classList.add('is-active'); }
+        });
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('clear-btn').addEventListener('click', function () {
+        [].forEach.call(form.querySelectorAll('input:checked'), function (r) { r.checked = false; });
+        [].forEach.call(form.children, clearMark); clearBands();
+    });
+    document.getElementById('new-btn').addEventListener('click', function () { build(); window.scrollTo({ top: document.getElementById('quiz').offsetTop, behavior: 'smooth' }); });
+    document.getElementById('retake').addEventListener('click', function (e) { e.preventDefault(); build(); document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' }); });
+    [].forEach.call(document.querySelectorAll('.mode'), function (b) {
+        b.addEventListener('click', function () {
+            mode = b.dataset.mode;
+            [].forEach.call(document.querySelectorAll('.mode'), function (m) { m.setAttribute('aria-pressed', m === b ? 'true' : 'false'); });
+            build();
+        });
+    });
+    document.getElementById('mode-signs-desc').textContent = 'Pick the right sign from three. ' + SIGNS.length + ' questions in the bank';
+    document.getElementById('mode-rules-desc').textContent = 'Situations, braking, crashes and vehicles. ' + RULES.length + ' questions in the bank';
+    build();
+})();
+</script>
+<script>
+(function () {
+    var nav = document.querySelector('header.home-header nav');
+    if (!nav) return;
+    var ul = nav.querySelector('ul');
+    var links = [].slice.call(ul.querySelectorAll('a'));
+    var pill = document.createElement('span');
+    pill.className = 'nav-pill'; pill.setAttribute('aria-hidden', 'true');
+    ul.insertBefore(pill, ul.firstChild);
+    var cur = ul.querySelector('a[aria-current="page"]');
+    function place(a, animate) {
+        var r = a.getBoundingClientRect(), u = ul.getBoundingClientRect();
+        pill.style.transition = animate ? '' : 'none';
+        pill.style.width = r.width + 'px'; pill.style.height = r.height + 'px';
+        pill.style.transform = 'translate(' + (r.left - u.left) + 'px,' + (r.top - u.top) + 'px)';
+        if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+    }
+    function fileOf(href) { return (new URL(href, location.href).pathname.split('/').pop() || 'index.html'); }
+    function sync() {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        links.forEach(function (l) { if (fileOf(l.href) === here) { l.setAttribute('aria-current', 'page'); cur = l; } else { l.removeAttribute('aria-current'); } });
+        if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    }
+    if (cur) { place(cur, false); nav.classList.add('has-pill'); }
+    window.addEventListener('resize', function () { if (cur) place(cur, false); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (cur) place(cur, false); });
+    links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button || a.target) return;
+            if (fileOf(a.href) === (location.pathname.split('/').pop() || 'index.html')) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            e.preventDefault();
+            links.forEach(function (l) { l.removeAttribute('aria-current'); });
+            a.setAttribute('aria-current', 'page'); cur = a; place(a, true);
+            setTimeout(function () { location.href = a.href; }, 360);
+        });
+    });
+})();
+</script>
+</body>
+</html>
