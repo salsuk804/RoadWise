@@ -1,2 +1,2 @@
 # RoadWise
-RoadWise is a simple website that teaches traffic rules, road signs and ride safety for Pakistani roads.
+RoadWise is a static website that helps people learn road safety. It covers traffic signs, fines, safety tips for each vehicle type, emergency steps and a quiz. It uses plain HTML, CSS and JavaScript, so there is nothing to install. Open index.html in a browser to start.
